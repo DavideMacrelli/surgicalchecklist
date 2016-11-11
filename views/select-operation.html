@@ -1,4 +1,5 @@
-<form id="select-operation" novalidate ng-submit="checkForOperation()" >
+<form id="select-operation" novalidate ng-submit="getOperationList()" >
     <input type="text" name="barcode" placeholder="Barcode del paziente" ng-model="barcode">
     <input type="submit" name="submit" value="Cerca operazione"/>
+    {{barcode}}
 </form>

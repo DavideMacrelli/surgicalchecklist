@@ -1,0 +1,13 @@
+[{
+	"barcode": "A1",
+	"nome": "Adriano",
+	"cognome": "Pescatore",
+	"dataDiNascita": "11/08/1965",
+	"intervento": "Osteosintesi di omero"
+}, {
+	"barcode": "A2",
+	"nome": "Marco",
+	"cognome": "Rossi",
+	"dataDiNascita": "22/02/1985",
+	"intervento": "Perinectonia"
+}]

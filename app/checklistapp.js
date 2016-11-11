@@ -11,6 +11,13 @@ checklistApp.config(['$routeProvider', function($routeProvider) {
             templateUrl: "views/surgical-checklist.html",
             controller: "checklistController"
         })
+        .when('/operation-list', {
+            templateUrl: "views/operation-list.html",
+            controller: "selectController"
+        })
+        .when('/data-error', {
+            templateUrl: "views/data-error.html"
+        })
         .otherwise({
             redirectTo: "/home"
         });
@@ -20,13 +27,27 @@ checklistApp.config(['$routeProvider', function($routeProvider) {
 
 
 
-checklistApp.controller('selectController', ['$scope', '$location', function($scope, $location) {
-    $scope.checkForOperation = function(){
-        //TODO: Una o più operazioni per barcode?
-        var barcode = $scope.barcode;
-        $location.path('/surgical-checklist');
+checklistApp.controller('selectController', ['$scope', '$location', '$http', '$log', function($scope, $location, $http, $log) {
+    $scope.getOperationList = function(){
+        $log.log("Inizio: " + $scope.barcode);
+        getData().then(function() {
+            //la promessa è fulfilled
+            $log.log("Promessa fulfilled");
+        },function() {
+            //la promessa è rejected
+            $log.log("Promessa rejected");
 
+
+        });
     };
+
+    var getData = function(){
+        //TODO: disacoppiare dall'Implementazione,
+        //idealmente dovrebbe funzionare anche con un Database
+
+        return $http.get('content/jsontest.json');
+    };
+
 
 }]);
 
