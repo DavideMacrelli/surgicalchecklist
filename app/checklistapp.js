@@ -35,6 +35,7 @@ checklistApp.controller('selectController', ['$scope', '$location', '$http', '$l
             $log.log("Promessa fulfilled");
         })
         .catch(function() {
+            //il then/catch pattern https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns
             //promessa rejected
             $log.log("promessa rejected");
 
@@ -42,10 +43,25 @@ checklistApp.controller('selectController', ['$scope', '$location', '$http', '$l
     };
 
     var getData = function(){
-        //TODO: disacoppiare dall'Implementazione,
-        //idealmente dovrebbe funzionare anche con un Database
+        //getData per il prototipo, usa un data model di oggetti json,
+        //presuppone che il barcode sia identificativo
+        //quindi una sola operazione per paziente puo essere presente
 
-        return $http.get('content/json4test.json');
+        return $http.get('content/jsontest.json').then(function(response) {
+            //la get restituisce una promise
+            $log.log("La get ha avuto esito positivo: ");
+            $scope.opList = response.data[$scope.barcode];      //Trovo l'operazione con lo stesso barcode
+
+
+
+        },function(response) {
+            $log.log("la get ha avuto esito negativo" + response);
+            $scope.error = {
+                code: response.status,
+                message: response.statusText
+            };
+            $log.log("" + $scope.error.code + "" + $scope.error.message);
+        });
     };
 
 
