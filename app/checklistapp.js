@@ -33,10 +33,10 @@ checklistApp.controller('selectController', ['$scope', '$location', '$http', '$l
         getData().then(function() {
             //la promessa è fulfilled
             $log.log("Promessa fulfilled");
-        },function() {
-            //la promessa è rejected
-            $log.log("Promessa rejected");
-
+        })
+        .catch(function() {
+            //promessa rejected
+            $log.log("promessa rejected");
 
         });
     };
@@ -45,7 +45,7 @@ checklistApp.controller('selectController', ['$scope', '$location', '$http', '$l
         //TODO: disacoppiare dall'Implementazione,
         //idealmente dovrebbe funzionare anche con un Database
 
-        return $http.get('content/jsontest.json');
+        return $http.get('content/json4test.json');
     };
 
 
