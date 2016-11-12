@@ -15,8 +15,9 @@ checklistApp.config(['$routeProvider', function($routeProvider) {
             templateUrl: "views/operation-list.html",
             controller: "selectController"
         })
-        .when('/data-error', {
-            templateUrl: "views/data-error.html"
+        .when('/error-page', {
+            templateUrl: "views/error-page.html",
+            controller: "selectController"
         })
         .otherwise({
             redirectTo: "/home"
@@ -33,37 +34,63 @@ checklistApp.controller('selectController', ['$scope', '$location', '$http', '$l
         getData().then(function() {
             //la promessa è fulfilled
             $log.log("Promessa fulfilled");
+            if(typeof $scope.opList == "undefined" || $scope.opList.lenght === 0){
+                $log.log("Lista vuoto o undefined");
+                errorMessage("", "Operazione non trovata");     //crea il messaggio d'errore
+                $location.path('/error-page');      //ridireziona alla pagina che segnala l'errore
+            } else {
+                console.log("lista corretta");
+                //TODO: controlli migliori per opList
+                $location.path('/operation-list');
+            }
         })
         .catch(function() {
             //il then/catch pattern https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns
             //promessa rejected
             $log.log("promessa rejected");
+            $location.path('/error-page');
 
         });
     };
 
+/**
+ * Obtains the surgical operation with the same barcode the user sent via form,
+ * data is stored in a json for now
+ * @return {HttpPromise} get method promise
+ */
     var getData = function(){
-        //getData per il prototipo, usa un data model di oggetti json,
         //presuppone che il barcode sia identificativo
         //quindi una sola operazione per paziente puo essere presente
-
-        return $http.get('content/jsontest.json').then(function(response) {
+        //TODO: impostare dei servizi per mantenere dati tra le viste
+        return $http.get('content/js4ontest.json').then(function(response) {
             //la get restituisce una promise
             $log.log("La get ha avuto esito positivo: ");
             $scope.opList = response.data[$scope.barcode];      //Trovo l'operazione con lo stesso barcode
 
-
-
         },function(response) {
+            //callback rejected promise
             $log.log("la get ha avuto esito negativo" + response);
-            $scope.error = {
-                code: response.status,
-                message: response.statusText
-            };
-            $log.log("" + $scope.error.code + "" + $scope.error.message);
+            errorMessage(response.status, response.statusText);
+
         });
     };
 
+/**
+ * create an error message accessible from the $scope
+ * @param  {string} code    code of the error
+ * @param  {string} message
+ *
+ */
+    var errorMessage = function(code,message) {
+
+        $scope.error = {
+            code: code,
+            message: message
+        };
+        $log.log("" + $scope.error.code + "" + $scope.error.message);
+
+
+    };
 
 }]);
 
