@@ -1,22 +1,24 @@
+'use strict';
+
 var checklistApp = angular.module('checklistApp', ['ngRoute']);
 
 checklistApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/home', {
-            templateUrl: "views/select-operation.html",
+            templateUrl: "homepage-view/select-operation.html",
             controller: "selectController"
         })
         .when('/surgical-checklist', {
             //TODO: Fare in modo che non ci si possa accedere dalla di navigazione, o senza un operazione loggata
-            templateUrl: "views/surgical-checklist.html",
+            templateUrl: "checklist-view/surgical-checklist.html",
             controller: "checklistController"
         })
         .when('/operation-list', {
-            templateUrl: "views/operation-list.html",
+            templateUrl: "homepage-view/operation-list.html",
             controller: "selectController"
         })
         .when('/error-page', {
-            templateUrl: "views/error-page.html",
+            templateUrl: "error-view/error-page.html",
             controller: "selectController"
         })
         .otherwise({
@@ -39,9 +41,8 @@ checklistApp.controller('selectController', ['$scope', '$location', '$http', '$l
                 errorMessage("", "Operazione non trovata");     //crea il messaggio d'errore
                 $location.path('/error-page');      //ridireziona alla pagina che segnala l'errore
             } else {
-                console.log("lista corretta");
+                $log.log("lista corretta");
                 //TODO: controlli migliori per opList
-                $location.path('/operation-list');
             }
         })
         .catch(function() {
@@ -62,7 +63,7 @@ checklistApp.controller('selectController', ['$scope', '$location', '$http', '$l
         //presuppone che il barcode sia identificativo
         //quindi una sola operazione per paziente puo essere presente
         //TODO: impostare dei servizi per mantenere dati tra le viste
-        return $http.get('content/js4ontest.json').then(function(response) {
+        return $http.get('content/jsontest.json').then(function(response) {
             //la get restituisce una promise
             $log.log("La get ha avuto esito positivo: ");
             $scope.opList = response.data[$scope.barcode];      //Trovo l'operazione con lo stesso barcode
