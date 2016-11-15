@@ -10,7 +10,7 @@ angular.module('checklistApp.homepage', ['ngRoute'])
 
 }])
 
-.controller('homepageController', ['$scope', '$location', '$http', '$log', '$q', function($scope, $location, $http, $log, $q) {
+.controller('homepageController', ['$scope', '$location', '$http', '$log', '$q', 'errorPage', function($scope, $location, $http, $log, $q, signalError) {
     $scope.getOperationList = function(){
         $log.log("Inizio: " + $scope.barcode);
         //TODO: getData come servizio
@@ -19,8 +19,7 @@ angular.module('checklistApp.homepage', ['ngRoute'])
             $log.log("Promessa fulfilled");
             if(typeof $scope.opList == "undefined" || $scope.opList.lenght === 0){
                 $log.log("Lista vuoto o undefined");
-                errorMessage("", "Operazione non trovata");     //crea il messaggio d'errore
-                $location.path('/error-page');      //ridireziona alla pagina che segnala l'errore
+                signalError('00', 'Lista vuota');
             } else {
                 $log.log("lista corretta");
                 //TODO: controlli migliori per opList
