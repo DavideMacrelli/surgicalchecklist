@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="it" ng-app="checklistApp">
+<!--[if lt IE 7]>      <html lang="en" ng-app="checklistApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="checklistApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="checklistApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="checklistApp" class="no-js"> <!--<![endif]-->
 <head>
     <title>Surgical Safety Checklist</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    <script src="lib\angular.js"></script>
-    <script src="lib\angular-route.js"></script>
-    <script src="checklistapp.js"></script>
+
 </head>
 <body>
     <header>
@@ -19,5 +20,13 @@
     <main ng-view>
 
     </main>
+
+    <script src="lib\angular.js"></script>
+    <script src="lib\angular-route.js"></script>
+    <!-- Per caricare i componenti dell'app è consigliabile usare un package manager come bower -->
+    <script src="homepage-view\homepage.js"></script>
+    <script src="error-view\error-page.js"></script>
+    <script src="checklist-view\surgical-checklist.js"></script>
+    <script src="checklistapp.js"></script>
 </body>
 </html>
