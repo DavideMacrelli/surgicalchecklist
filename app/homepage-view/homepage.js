@@ -10,11 +10,15 @@ angular.module('checklistApp.homepage', ['ngRoute'])
 
 }])
 
-.controller('homepageController', ['$scope', '$location', '$http', '$log', '$q', 'errorPage', function($scope, $location, $http, $log, $q, signalError) {
+.controller('homepageController', ['$scope', '$location', '$http', '$log', '$q', 'errorPage', 'matchJsonList', function($scope, $location, $http, $log, $q, signalError, getMatchService) {
     $scope.getOperationList = function(){
         $log.log("Inizio: " + $scope.barcode);
         //TODO: getData come servizio
-        getData().then(function() {
+
+        getMatchService.getMatch($scope.barcode);
+
+
+        /*getData().then(function() {
             //la promessa è fulfilled
             $log.log("Promessa fulfilled");
             if(typeof $scope.opList == "undefined" || $scope.opList.lenght === 0){
@@ -29,9 +33,8 @@ angular.module('checklistApp.homepage', ['ngRoute'])
             //il then/catch pattern https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns
             //promessa rejected
             $log.log("promessa rejected");
-            $location.path('/error-page');
 
-        });
+        });*/
     };
 
 /**
@@ -51,28 +54,10 @@ angular.module('checklistApp.homepage', ['ngRoute'])
         },function(response) {
             //callback rejected promise
             $log.log("la get ha avuto esito negativo" + response);
-            errorMessage(response.status, response.statusText);
              //definire la callback fa tornare la promessa come fulfilled
             return $q.reject();   //setto la promessa a rejected
 
         });
-    };
-
-/**
- * create an error message accessible from the $scope
- * @param  {string} code    code of the error
- * @param  {string} message
- *
- */
-    var errorMessage = function(code,message) {
-
-        $scope.error = {
-            code: code,
-            message: message
-        };
-        $log.log("" + $scope.error.code + "" + $scope.error.message);
-
-
     };
 
 }]);

@@ -4,7 +4,8 @@ angular.module('checklistApp', [
     'ngRoute',
     'checklistApp.homepage',
     'checklistApp.error-page',
-    'checklistApp.errorService'
+    'checklistApp.errorService',
+    'checklistApp.jsonListMatcher'
 ])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
