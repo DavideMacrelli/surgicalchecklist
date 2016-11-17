@@ -2,18 +2,30 @@
 
 angular.module('checklistApp.jsonListMatcher',[])
 
+/**
+ * matchJsonList uses the '$http' service to get the list of operation stored in a json file
+ * return an object if a match is found or rejects the promise otherwise
+ * errors are stored in property that callers can obtain with the 'getError' method
+ */
 .factory('matchJsonList', ['$http', '$log', '$q', function($http, $log, $q) {
     var errorMessage = {
         code: "",
         message: ""
     };
 
+
+/**
+ * set an error property
+ * @param {*} code    code
+ * @param {String} message short description of the error
+ */
     var setError =  function(code,message) {
         errorMessage.code = code;
         errorMessage.message = message;
     };
 
     return {
+
         getError: function() {
             return errorMessage;
         },

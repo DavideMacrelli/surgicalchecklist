@@ -10,12 +10,25 @@ angular.module('checklistApp.homepage', ['ngRoute'])
 
 }])
 
-.controller('homepageController', ['$scope', '$location', '$http', '$log', '$q', 'errorPage', 'matchJsonList', function($scope, $location, $http, $log, $q, signalError, getMatchService) {
+.controller('homepageController', ['$scope', '$log', 'errorPage', 'matchJsonList', function($scope, $log, signalError, getMatchService) {
     $scope.getOperationList = function(){
         $log.log("Inizio: " + $scope.barcode);
-        //TODO: getData come servizio
 
-        getMatchService.getMatch($scope.barcode);
+        getMatchService.getMatch($scope.barcode)
+            .then(function(data) {
+                //promessa fulfilled
+                $log.log("promessa fulfilled" + data);
+                $scope.match = data;
+
+            })
+            .catch(function() {
+                //promessa reject
+                $log.log('promise rejected');
+                var error = getMatchService.getError();
+                signalError(error.code, error.message);
+            });
+
+
 
 
         /*getData().then(function() {
@@ -37,27 +50,6 @@ angular.module('checklistApp.homepage', ['ngRoute'])
         });*/
     };
 
-/**
- * Obtains the surgical operation with the same barcode the user sent via form,
- * data is stored in a json for now
- * @return {HttpPromise} get method promise
- */
-    var getData = function(){
-        //presuppone che il barcode sia identificativo
-        //quindi una sola operazione per paziente puo essere presente
-        //TODO: impostare dei servizi per mantenere dati tra le viste
-        return $http.get('content/json5test.json').then(function(response) {
-            //la get restituisce una promise
-            $log.log("La get ha avuto esito positivo: ");
-            $scope.opList = response.data[$scope.barcode];      //Trovo l'operazione con lo stesso barcode
 
-        },function(response) {
-            //callback rejected promise
-            $log.log("la get ha avuto esito negativo" + response);
-             //definire la callback fa tornare la promessa come fulfilled
-            return $q.reject();   //setto la promessa a rejected
-
-        });
-    };
 
 }]);
