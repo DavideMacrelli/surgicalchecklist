@@ -1,4 +1,20 @@
 body{
     margin: 0 auto;
     max-width: 50em;
+    font-family: Helvetica,Arial,sans-serif;
+    line-height: 1.5;
+    padding: 4em 1em;
+    color: #555;
+}
+
+h1,
+h2,
+h3,
+h4{
+    color: #333;
+}
+
+.op-match{
+    background-color: #eee;
+    border-radius: 20px;
 }

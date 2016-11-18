@@ -3,9 +3,10 @@
 angular.module('checklistApp', [
     'ngRoute',
     'checklistApp.homepage',
-    'checklistApp.error-page',
+    'checklistApp.errorPage',
     'checklistApp.errorService',
-    'checklistApp.jsonListMatcher'
+    'checklistApp.jsonListMatcher',
+    'checklistApp.checklistView'
 ])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -16,5 +17,4 @@ angular.module('checklistApp', [
             redirectTo: "/home"
         });
 
-        }
-]);
+}]);

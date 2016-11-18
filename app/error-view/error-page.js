@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('checklistApp.error-page', ['ngRoute'])
+angular.module('checklistApp.errorPage', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/error-page', {
-        templateUrl: 'error-view/error-page.html'    
+        templateUrl: 'error-view/error-page.html'
     });
 
 }]);

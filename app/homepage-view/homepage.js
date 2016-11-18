@@ -10,7 +10,7 @@ angular.module('checklistApp.homepage', ['ngRoute'])
 
 }])
 
-.controller('homepageController', ['$scope', '$log', 'errorPage', 'matchJsonList', function($scope, $log, signalError, getMatchService) {
+.controller('homepageController', ['$scope', '$log', '$rootScope', '$location', 'errorPage', 'matchJsonList', function($scope, $log, $rootScope, $location, signalError, getMatchService) {
     $scope.getOperationList = function(){
         $log.log("Inizio: " + $scope.barcode);
 
@@ -27,29 +27,11 @@ angular.module('checklistApp.homepage', ['ngRoute'])
                 var error = getMatchService.getError();
                 signalError(error.code, error.message);
             });
+        };
 
-
-
-
-        /*getData().then(function() {
-            //la promessa è fulfilled
-            $log.log("Promessa fulfilled");
-            if(typeof $scope.opList == "undefined" || $scope.opList.lenght === 0){
-                $log.log("Lista vuoto o undefined");
-                signalError('00', 'Lista vuota');
-            } else {
-                $log.log("lista corretta");
-                //TODO: controlli migliori per opList
-            }
-        })
-        .catch(function() {
-            //il then/catch pattern https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns
-            //promessa rejected
-            $log.log("promessa rejected");
-
-        });*/
+    //TODO: come servizio
+    $scope.startSession = function() {
+        $rootScope.operation = $scope.match;
+        $location.path('/checklist-view');
     };
-
-
-
 }]);
