@@ -41,7 +41,7 @@ angular.module('checklistApp.jsonListMatcher',[])
                         //c'è un match nella lista
                         matchList.push(response.data[barcode]);
                         $log.log("C'è un match: " + matchList[0]);
-                        return matchList;
+                        return matchList[0];
                     } else {
                         //non c'è un match
                         $log.log("Non c'è un match");

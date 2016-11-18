@@ -1,2 +1,29 @@
-<h2>Checklist Modulo 776/a</h2>
-{{operation[0].nome}}
+<section id="op-details">
+    <p>
+        <strong>Cognome:</strong> {{operation.cognome}} - <strong>Nome:</strong> {{operation.nome}} -
+        <strong>data di nascita:</strong> {{operation.dataDiNascita}} -
+    </p>
+    <p>
+        <strong>Intervento Chirugico:</strong> {{operation.intervento}} -
+        <strong>data:</strong> {{operation.data}}
+    </p>
+</section>
+<h2 id="list-header">Modulo 776/a - cheklist</h2>
+<section class="phase">
+    <hgroup class="phase-title">
+        <h3>SIGN-IN</h3>
+        <h6>i 7 controlli da effettuare prima dell'induzione dell'anestesia</h6>
+    </hgroup>
+    <form action="" class="step">
+        <fieldset>
+             <legend>Il paziente ha confermato</legend><br />
+             <input type="checkbox" name="op1" value="identità"/> Identità
+             <br />
+             <input type="checkbox" name="op2" value="sede"/> Sede intervento
+             <br />
+             <input type="checkbox" name="op3" value="procedura"/> Procedura
+             <br />
+             <input type="checkbox" name="op4" value="consensi" /> Consensi (anestesiologico,chirgurgico,emocomponeneti)
+        </fieldset>
+    </form>
+</section>
