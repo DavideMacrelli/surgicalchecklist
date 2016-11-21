@@ -6,7 +6,8 @@ angular.module('checklistApp', [
     'checklistApp.errorPage',
     'checklistApp.errorService',
     'checklistApp.jsonListMatcher',
-    'checklistApp.checklistView'
+    'checklistApp.checklistView',
+    'checklistApp.checklistDirective'
 ])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {

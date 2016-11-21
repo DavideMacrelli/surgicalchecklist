@@ -1,0 +1,46 @@
+<h2 id="list-header">Modulo 776/a - cheklist</h2>
+<form class="phase">
+    <hgroup class="phase-title">
+        <h3>SIGN-IN</h3>
+        <h6>i 7 controlli da effettuare prima dell'induzione dell'anestesia</h6>
+    </hgroup>
+    <fieldset class="step" ng-repeat="step in checklistData.steps" >
+        <legend>{{step.legend}}</legend><br />
+        <div class="option" ng-repeat="option in step.options">
+            <input type="checkbox" name="" value=""/> {{option}}
+        </div>
+
+    </fieldset>
+
+    <!--
+    <form action="" class="step">
+        <fieldset>
+             <legend>Il paziente ha confermato</legend><br />
+             <input type="checkbox" name="op1" value="identità"/> Identità
+             <br />
+             <input type="checkbox" name="op2" value="sede"/> Sede intervento
+             <br />
+             <input type="checkbox" name="op3" value="procedura"/> Procedura
+             <br />
+             <input type="checkbox" name="op4" value="consensi" /> Consensi (anestesiologico,chirgurgico,emocomponeneti)
+        </fieldset>
+    </form>
+
+    <form action="" class="step">
+        <fieldset>
+             <legend>Verifica presenza e correttezza della marchature del sito dell'intervento</legend><br />
+             <input type="checkbox" name="op1" value=" " />
+             <br />
+             <input type="checkbox" name="op2" value="non-applicabile" /> non applicabile
+        </fieldset>
+    </form>
+
+    <form action="" class="step">
+        <fieldset>
+             <legend>Test</legend><br />
+             <input type="checkbox" name="" value="" />
+             <br />
+        </fieldset>
+    </form>
+-->
+</form>
