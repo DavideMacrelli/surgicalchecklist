@@ -45,7 +45,7 @@ angular.module('checklistApp.jsonListMatcher',[])
                     } else {
                         //non c'è un match
                         $log.log("Non c'è un match");
-                        setError('00', 'Lista vuota');
+                        setError('00', 'Nessun intervento trovato');
                         return $q.reject(response.data);
                     }
                 } else {
