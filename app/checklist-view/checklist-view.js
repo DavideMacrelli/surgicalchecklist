@@ -9,7 +9,7 @@ angular.module('checklistApp.checklistView', [])
     });
 }])
 
-.controller('checklistController',['$scope', '$log', function($scope, $log) {
+.controller('checklistController',['$scope', '$log', 'listState', function($scope, $log, listState) {
     //La struttura della checklist
     //TODO: da mettere in un file json che viene recuperato con http get
     //TODO: completare la prima fase
@@ -58,15 +58,14 @@ angular.module('checklistApp.checklistView', [])
         },
     ];
 
-    $scope.checklistData ={
+    $scope.checklistData = {
         steps: checklist
     };
 
-    $scope.activeStep = 0;
-    $scope.nextStep = function() {
-        $scope.activeStep++;
-        $log.log($scope.activeStep);
 
+    $scope.listSession = listState.getCurrentSession();
+    $scope.nextStep = function() {
+        listState.nextStep();
     };
 }])
 ;

@@ -4,7 +4,7 @@
         <h3>SIGN-IN</h3>
         <h6>i 7 controlli da effettuare prima dell'induzione dell'anestesia</h6>
     </hgroup>
-    <fieldset class="step" ng-repeat="step in checklistData.steps" ng-class="{active: $index == activeStep, disabled: $index != activeStep}" >
+    <fieldset class="step" ng-repeat="step in checklistData.steps" ng-class="{active: $index == listSession.step, disabled: $index != listSession.step}" >
         <legend>{{step.legend}}</legend><br />
         <div class="option" ng-repeat="option in step.options">
             <input type="checkbox" name="" value="" ng-click="nextStep()"/> {{option}}

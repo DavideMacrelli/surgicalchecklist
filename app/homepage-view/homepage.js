@@ -10,20 +10,18 @@ angular.module('checklistApp.homepage', ['ngRoute'])
 
 }])
 
-.controller('homepageController', ['$scope', '$log', '$rootScope', '$location', 'errorPage', 'matchJsonList', function($scope, $log, $rootScope, $location, signalError, getMatchService) {
+.controller('homepageController', ['$scope', '$log', 'listState', 'errorPage', 'matchJsonList', function($scope, $log, listState, signalError, getMatchService) {
     $scope.getOperationList = function(){
-        $log.log("Inizio: " + $scope.barcode);
-
         getMatchService.getMatch($scope.barcode)
             .then(function(data) {
                 //promessa fulfilled
-                $log.log("promessa fulfilled" + data);
+                $log.log("promessa get fulfilled" + data);
                 $scope.match = data;
 
             })
             .catch(function() {
                 //promessa reject
-                $log.log('promise rejected');
+                $log.log('promessa get rejected');
                 var error = getMatchService.getError();
                 signalError(error.code, error.message);
             });
@@ -31,7 +29,11 @@ angular.module('checklistApp.homepage', ['ngRoute'])
 
     //TODO: come servizio
     $scope.startSession = function() {
+        $log.log("operation prima di passarlo: " + $scope.match);
+        listState.startList($scope.barcode, $scope.match);
+        /*
         $rootScope.operation = $scope.match;
         $location.path('/checklist-view');
+        */
     };
 }]);
