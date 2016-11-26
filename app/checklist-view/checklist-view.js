@@ -62,10 +62,17 @@ angular.module('checklistApp.checklistView', [])
         steps: checklist
     };
 
-
+    //lega il modello allo stato della checklist sul service
     $scope.listSession = listState.getCurrentSession();
+
     $scope.nextStep = function() {
         listState.nextStep();
     };
+
+    //ogni volta che il controller viene eliminato, fa il listen sull'evento $destroy
+    //e salva la sessione corrente
+    $scope.$on('$destroy', function() {
+        listState.exitSession();
+    });
 }])
 ;

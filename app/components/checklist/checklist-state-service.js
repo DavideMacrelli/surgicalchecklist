@@ -13,6 +13,10 @@ angular.module('checklistApp.listStateService',[])
  *
  */
 .factory('listState', ['$log', '$location', function($log, $location) {
+    /**
+     * Stato della checklist attiva
+     * @type {Object}
+     */
     var currentListState = {
         barcode: '',
         details: {},
@@ -20,6 +24,10 @@ angular.module('checklistApp.listStateService',[])
         step: 0
     };
 
+    /**
+     * setter per 'currentListState'
+     * @param {Object} session la sessione da impostare
+     */
     var setCurrentSession = function(session) {
         $log.log("session loaded");
         currentListState.barcode = session.barcode;
@@ -36,17 +44,27 @@ angular.module('checklistApp.listStateService',[])
         step: 0
     };
 
-    var storeSession = function(session) {
+    /**
+     * Archivia la sessione attiva
+     *
+     */
+    var storeSession = function() {
         //Prototipo
-        lastSession.barcode = session.barcode;
-        lastSession.details = session.details;
-        lastSession.phase = session.phase;
-        lastSession.step = session.step;
-        $log.log("session stored" + lastSession.barcode);
+        lastSession.barcode = currentListState.barcode;
+        lastSession.details = currentListState.details;
+        lastSession.phase = currentListState.phase;
+        lastSession.step = currentListState.step;
+        $log.log("session stored" + lastSession.barcode + " -- Al passo: " + lastSession.step);
     };
 
+    /**
+     * inizia una nuova checklist, archiviandola in un file json
+     *
+     * @param  {String} barcode barcode paziente sottoposto all'operazione
+     * @param  {Object} details dettagli dell'operazione
+     */
     var newSession = function(barcode, details) {
-        //TODO: crea uno file json nuovo
+        //TODO: crea un file json nuovo
         //Prototipo
         currentListState = {
             barcode: barcode,
@@ -58,10 +76,22 @@ angular.module('checklistApp.listStateService',[])
     };
 
     return {
+        /**
+         * Ritorna lo stato della sessione attiva
+         * @return {Object}
+         */
         getCurrentSession: function() {
             return currentListState;
         },
 
+        /**
+         * Avvia la compilazione di una checklist, se questa checklist è già stata compilata in precedenza
+         * ottiene lo stato archiviato in un file json e lo carica come stato attivo
+         * altrimenti inizia una nuova checklist archiviando un file nuovo
+         *
+         * @param  {String} barcode barcode del paziente sottoposto all'operazione
+         * @param  {Object} details dettagli dell'operazione
+         */
         startList: function(barcode, details) {
             //TODO: Salvare le sessioni in file json, fare una get per recuperarli
 
@@ -79,11 +109,17 @@ angular.module('checklistApp.listStateService',[])
             }
         },
 
+        /**
+         * Avanza al prossimo step della checklist
+         */
         nextStep: function() {
             currentListState.step++;
             $log.log("step nel service: " + currentListState.step);
         },
 
+        /**
+         * esce dalla checklist corrente: archivia quella corrente prima di resettarla
+         */
         exitSession: function() {
             $log.log("exiting session");
             storeSession(currentListState);
