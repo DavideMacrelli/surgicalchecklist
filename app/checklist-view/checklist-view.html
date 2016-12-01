@@ -9,6 +9,25 @@
     </p>
 </section>
 
-<div data-my-checklist>
+<div class="slide" data-my-checklist ng-hide="anomalyDetectionMode">
+
+</div>
+
+<div class="anomaly-form slide" ng-hide="!anomalyDetectionMode">
+    <h2 id="list-header">Modulo 776/b - Rivelazione delle Deviazioni dallo Standard Regionale</h2>
+    <form class="phase">
+        <hgroup class="phase-title">
+            <h3>SIGN-IN</h3>
+            <h6>i 7 controlli da effettuare prima dell'induzione dell'anestesia</h6>
+        </hgroup>
+        <fieldset class="step" ng-repeat="step in anomalySheetData.steps"
+            ng-class="{'active': $index == listSession.step, 'disabled': $index != listSession.step}" >
+            <legend>{{step.legend}}</legend><br />
+            <div class="option" ng-repeat="option in step.options">
+                <input type="checkbox" name="" value=""/> {{option}}
+            </div>
+            <button type="button" class="anomaly-submit" ng-click="submitAnomaly()">Segnala anomalia</button>
+        </fieldset>
+    </form>
 
 </div>

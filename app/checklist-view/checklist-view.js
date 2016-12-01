@@ -58,8 +58,64 @@ angular.module('checklistApp.checklistView', [])
         },
     ];
 
+    //Struttura scheda rivelazione anomalie
+    var anomalySheet = [
+        {
+            legend: "Identità Paziente:",
+            options: [
+                "No braccialetto",
+                "No barcode/nosologico",
+                "No nosologico",
+                "No cartella"
+            ]
+        },
+
+        {
+            legend: "Sede intervento:",
+            options: [
+                "Non conferma della sede"
+            ]
+        },
+
+        {
+            legend: "Procedura Chirurgica",
+            options: [
+                "Non conferma della Procedura"
+            ]
+        },
+
+        {
+            legend: "Consenso",
+            options: [
+                "mancata firma del consenso chirurgico",
+                "mancata firma del consenso anestesiologico",
+                "mancata firma del consenso emocomponenti"
+            ]
+        },
+
+        {
+            legend: "Il sito dell'intervento marcato",
+            options: [
+                "Sito non marcato",
+                "errata marcatura del sito"
+            ]
+        },
+
+        {
+            legend: "Controlli apparecchiature anestesia",
+            options: [
+                "test apparecchiature non effettuati",
+                "non corretto posizionamento"
+            ]
+        },
+    ];
+
     $scope.checklistData = {
         steps: checklist
+    };
+
+    $scope.anomalySheetData = {
+        steps: anomalySheet
     };
 
     //lega il modello allo stato della checklist sul service
@@ -74,5 +130,16 @@ angular.module('checklistApp.checklistView', [])
     $scope.$on('$destroy', function() {
         listState.exitSession();
     });
+
+    $scope.signalAnomaly = function(step) {
+            $log.log("Anomaly in step N: " + step);
+            $scope.anomalyDetectionMode = true;
+    };
+
+    $scope.submitAnomaly = function(){
+            $scope.anomalyDetectionMode = false;
+    };
+
+    $scope.anomalyDetectionMode = false;
 }])
 ;

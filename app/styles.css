@@ -43,6 +43,11 @@ strong{
     font-weight: bold;
 }
 
-.disabled .option{
+.disabled .option,
+.disabled .signal-button,
+.disabled .anomaly-submit{
     display: none;
 }
+
+
+/* Animazioni */

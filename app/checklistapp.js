@@ -2,6 +2,7 @@
 
 angular.module('checklistApp', [
     'ngRoute',
+    'ngAnimate',
     'checklistApp.homepage',
     'checklistApp.errorPage',
     'checklistApp.errorService',
