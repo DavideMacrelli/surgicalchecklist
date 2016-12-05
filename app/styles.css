@@ -2,12 +2,11 @@ body{
     font-family: Helvetica,Arial,sans-serif;
     margin: 0 auto;
     line-height: 1.5;
-    padding: 4em 1em;
+    padding: 2em 1em;
     color: #555;
 }
 
 main{
-    width: 80%;
     margin: 0 auto;
 }
 header,
@@ -25,13 +24,16 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 strong{
+    margin: 1em auto;
     color: #333;
 }
 
 .phase{
-    max-width: 50%;
-    margin: 10px auto;
+    max-width: 80%;
+    margin: 2em auto;
 }
 
 .op-match{
@@ -45,7 +47,7 @@ strong{
 
 .disabled .option,
 .disabled .signal-button,
-.disabled .anomaly-submit{
+.disabled .nonconformity-submit{
     display: none;
 }
 

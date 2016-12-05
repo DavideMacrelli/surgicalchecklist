@@ -10,30 +10,19 @@ angular.module('checklistApp.homepage', ['ngRoute'])
 
 }])
 
-.controller('homepageController', ['$scope', '$log', 'listState', 'errorPage', 'matchJsonList', function($scope, $log, listState, signalError, getMatchService) {
-    $scope.getOperationList = function(){
-        getMatchService.getMatch($scope.barcode)
-            .then(function(data) {
-                //promessa fulfilled
-                $log.log("promessa get fulfilled" + data);
-                $scope.match = data;
+.controller('homepageController', ['$scope', '$log', 'listState', 'errorPage', '$location', function($scope, $log, listState, signalError,$location) {
 
-            })
-            .catch(function() {
-                //promessa reject
-                $log.log('promessa get rejected');
-                var error = getMatchService.getError();
-                signalError(error.code, error.message);
-            });
-        };
+    $scope.startForm = {
 
-    //TODO: come servizio
-    $scope.startSession = function() {
-        $log.log("operation prima di passarlo: " + $scope.match);
-        listState.startList($scope.barcode, $scope.match);
-        /*
-        $rootScope.operation = $scope.match;
-        $location.path('/checklist-view');
-        */
     };
+
+    $scope.startSession = function() {
+        $log.log($scope.startForm);
+        listState.setChecklistInfo($scope.startForm);
+        listState.startList();
+    };
+
+    $scope.$on('$destroy', function() {
+
+    });
 }]);

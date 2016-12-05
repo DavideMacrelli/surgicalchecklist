@@ -59,7 +59,7 @@ angular.module('checklistApp.checklistView', [])
     ];
 
     //Struttura scheda rivelazione anomalie
-    var anomalySheet = [
+    var nonConformitySheet = [
         {
             legend: "Identità Paziente:",
             options: [
@@ -110,36 +110,40 @@ angular.module('checklistApp.checklistView', [])
         },
     ];
 
+    //flag per il cambio di vista tra checklist e scheda Non-conformità
+    $scope.nonConformityView = false;
+
     $scope.checklistData = {
         steps: checklist
     };
 
-    $scope.anomalySheetData = {
-        steps: anomalySheet
+    $scope.nonConformitySheetData = {
+        steps: nonConformitySheet
     };
 
-    //lega il modello allo stato della checklist sul service
-    $scope.listSession = listState.getCurrentSession();
+    //lega il model allo stato della checklist sul service
+    $scope.listState = listState.getState();
 
     $scope.nextStep = function() {
         listState.nextStep();
     };
 
     //ogni volta che il controller viene eliminato, fa il listen sull'evento $destroy
-    //e salva la sessione corrente
+    //e resetta lo stato della checklist
     $scope.$on('$destroy', function() {
-        listState.exitSession();
+        listState.resetState();
     });
 
-    $scope.signalAnomaly = function(step) {
-            $log.log("Anomaly in step N: " + step);
-            $scope.anomalyDetectionMode = true;
+
+    $scope.signalNonConformity = function(step) {
+            $log.log("Non Conformity in step N: " + step);
+            $scope.nonConformityView = true;
     };
 
-    $scope.submitAnomaly = function(){
-            $scope.anomalyDetectionMode = false;
+    $scope.submitNonConformity = function(){
+            $scope.nonConformityView = false;
     };
 
-    $scope.anomalyDetectionMode = false;
+
 }])
 ;

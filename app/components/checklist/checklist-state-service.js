@@ -5,74 +5,24 @@ angular.module('checklistApp.listStateService',[])
 /**
  *
  * il servizio 'listState' mantiene lo stato della compilazione della checklist
- * lo stato della checklist attiva corrente è salvata in 'currentSession' che puo essere letto tramite 'getCurrentSession'
+ * lo stato della checklist attiva corrente è salvata in 'currentListState' che puo essere letto tramite 'getState'
  *
  * per iniziare la compilazione di una checklist usa 'startList'
- *
- * permette inoltre di archiviare lo stato in un file json (Prototipo: oggetto 'lastSession') con 'storeSession'
  *
  */
 .factory('listState', ['$log', '$location', function($log, $location) {
     /**
-     * Stato della checklist attiva
+     * I dati riguardanti la checklist attiva
+     * dettagli anagrafici, Presidio ospedaliero,
+     * sala operatoria, fase corrente, step corrente
      * @type {Object}
      */
     var currentListState = {
-        barcode: '',
-        details: {},
+        patientDetails: {},
+        hospital: "",
+        opRoom: "",
         phase: 0,
         step: 0
-    };
-
-    /**
-     * setter per 'currentListState'
-     * @param {Object} session la sessione da impostare
-     */
-    var setCurrentSession = function(session) {
-        $log.log("session loaded");
-        currentListState.barcode = session.barcode;
-        currentListState.details = session.details;
-        currentListState.phase = session.phase;
-        currentListState.step = session.step;
-    };
-
-    //Prototipo: dove salvo la sessione precedente
-    var lastSession = {
-        barcode: '',
-        details: {},
-        phase: 0,
-        step: 0
-    };
-
-    /**
-     * Archivia la sessione attiva
-     *
-     */
-    var storeSession = function() {
-        //Prototipo
-        lastSession.barcode = currentListState.barcode;
-        lastSession.details = currentListState.details;
-        lastSession.phase = currentListState.phase;
-        lastSession.step = currentListState.step;
-        $log.log("session stored" + lastSession.barcode + " -- Al passo: " + lastSession.step);
-    };
-
-    /**
-     * inizia una nuova checklist, archiviandola in un file json
-     *
-     * @param  {String} barcode barcode paziente sottoposto all'operazione
-     * @param  {Object} details dettagli dell'operazione
-     */
-    var newSession = function(barcode, details) {
-        //TODO: crea un file json nuovo
-        //Prototipo
-        currentListState = {
-            barcode: barcode,
-            details: details,
-            phase: 0,
-            step: 0
-        };
-        $log.log("started new session: " + currentListState.barcode);
     };
 
     return {
@@ -80,33 +30,17 @@ angular.module('checklistApp.listStateService',[])
          * Ritorna lo stato della sessione attiva
          * @return {Object}
          */
-        getCurrentSession: function() {
+        getState: function() {
             return currentListState;
         },
 
         /**
-         * Avvia la compilazione di una checklist, se questa checklist è già stata compilata in precedenza
-         * ottiene lo stato archiviato in un file json e lo carica come stato attivo
-         * altrimenti inizia una nuova checklist archiviando un file nuovo
+         * Avvia la compilazione di una checklist,
          *
-         * @param  {String} barcode barcode del paziente sottoposto all'operazione
-         * @param  {Object} details dettagli dell'operazione
+         * @param  {Object} parametri iniziali
          */
-        startList: function(barcode, details) {
-            //TODO: Salvare le sessioni in file json, fare una get per recuperarli
-
-            //Prototipo: controllo la last session
-            if(barcode == lastSession.barcode){
-                //esiste già una sessione di questa operazione
-                $log.log("esiste già una sessione");
-                setCurrentSession(lastSession);
-                $location.path('/checklist-view');
-            } else {
-                //non esiste una sessione per la operazione
-                $log.log("non esiste una sessione");
-                newSession(barcode, details);
-                $location.path('/checklist-view');
-            }
+        startList: function() {
+            $location.path('/checklist-view');
         },
 
         /**
@@ -114,19 +48,55 @@ angular.module('checklistApp.listStateService',[])
          */
         nextStep: function() {
             currentListState.step++;
-            $log.log("step nel service: " + currentListState.step);
+        },
+        /**
+         * Ritorna allo step precedente
+         */
+        prevStep: function () {
+            currentListState.step--;
         },
 
         /**
-         * esce dalla checklist corrente: archivia quella corrente prima di resettarla
+         * avanza alla fase sucessiva
          */
-        exitSession: function() {
-            $log.log("exiting session");
-            storeSession(currentListState);
-            currentListState.barcode = '';
-            currentListState.details = {};
-            currentListState.phase = 0;
-            currentListState.step = 0;
+        nextPhase: function () {
+            currentListState.phase++;
+        },
+
+        /**
+         * ritorna alla fase precedente
+         */
+        prevPhase: function () {
+            currentListState.phase--;
+        },
+
+        /**
+         * Ritorna lo stato della checklist a quello iniziale
+         */
+        resetState: function () {
+            currentListState = {
+                patientDetails: {},
+                hospital: "",
+                opRoom: "",
+                phase: 0,
+                step: 0
+            };
+        },
+
+        /**
+         * TODO documentazione
+         * @param {[type]} info
+         */
+        setChecklistInfo: function (info) {
+            if ("patientDetails" in info) {
+                currentListState.patientDetails = info.patientDetails;
+            }
+            if ("hospital" in info) {
+                currentListState.hospital = info.hospital;
+            }
+            if ("opRoom" in info) {
+                currentListState.opRoom = info.opRoom;
+            }
         }
     };
 
