@@ -1,26 +1,32 @@
-<div id="select-operation">
+<div id="start-form">
     <form novalidate ng-submit="startSession()">
-        Seleziona il presidio:
-        <select name="presidio" ng-model="startForm.hospital">
-            <option value="Cesena">Cesena</option>
-            <option value="N.D.">Da implementare</option>
-        </select>
-    </br>
-        Seleziona sala operatoria:
-        <select name="sala-op" ng-model="startForm.opRoom">
-            <option value="Ortopedia">Ortopedia</option>
-            <option value="Neurochirurgia">Neurochirurgia</option>
-            <option value="Ch. D'urgenza">Ch. D'urgenza</option>
-            <option value="Ch. vascolare">Ch. vascolare</option>
-            <option value="Ch. Max. facciale">Ch. Max. facciale</option>
-            <option value="O.R.C">O.R.C</option>
-            <option value="Urologia">Urologia</option>
-            <option value="Deg. Breve">Deg. Breve</option>
-            <option value="Oculistica">Oculistica</option>
-            <option value="C.G.U">C.G.U</option>
-            <option value="Ost. / Gine.">Ost. / Gine.</option>
-        </select>
-    </br>
-        <input type="submit" name="init" value="Inizia nuova checklist"/>
+
+        <div class="form-element">
+            Seleziona il presidio:
+            <select name="presidio" ng-model="startForm.hospital">
+                <option value="Cesena">Cesena</option>
+                <option value="N.D.">Da implementare</option>
+            </select>
+        </div>
+        <div class="form-element">
+            Seleziona sala operatoria:
+            <select name="sala-op" ng-model="startForm.opRoom">
+                <option value="Ortopedia">Ortopedia</option>
+                <option value="Neurochirurgia">Neurochirurgia</option>
+                <option value="Ch. D'urgenza">Ch. D'urgenza</option>
+                <option value="Ch. vascolare">Ch. vascolare</option>
+                <option value="Ch. Max. facciale">Ch. Max. facciale</option>
+                <option value="O.R.C">O.R.C</option>
+                <option value="Urologia">Urologia</option>
+                <option value="Deg. Breve">Deg. Breve</option>
+                <option value="Oculistica">Oculistica</option>
+                <option value="C.G.U">C.G.U</option>
+                <option value="Ost. / Gine.">Ost. / Gine.</option>
+            </select>
+        </div>
+
+        <div class="form-element">
+            <input type="submit" name="init" value="Inizia nuova checklist"/>
+        </div>        
     </form>
 </div>

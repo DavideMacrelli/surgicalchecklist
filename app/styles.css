@@ -2,7 +2,7 @@ body{
     font-family: Helvetica,Arial,sans-serif;
     margin: 0 auto;
     line-height: 1.5;
-    padding: 2em 1em;
+    padding: 1.5em 1em;
     color: #555;
 }
 
@@ -27,7 +27,7 @@ h4,
 h5,
 h6,
 strong{
-    margin: 1em auto;
+    margin: 0.8em auto;
     color: #333;
 }
 
@@ -50,6 +50,34 @@ strong{
 .disabled .nonconformity-submit{
     display: none;
 }
+
+#start-form {
+    margin: auto;
+    text-align: center;
+}
+
+.form-element{
+    margin: 2em auto;
+}
+
+#patient-info{
+    display: inline;
+    width: auto;
+    float: left;
+}
+
+#operation-info{
+    display: inline;
+    width: auto;
+    float: right;
+}
+
+#checklist-info{
+    height: 100px;
+    width: auto;
+
+}
+
 
 
 /* Animazioni */

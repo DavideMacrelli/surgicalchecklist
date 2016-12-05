@@ -1,5 +1,5 @@
 <section id="checklist-info">
-    <div class="patient-info">
+    <div id="patient-info">
         <p>
             <strong>Cognome:</strong> {{listState.details.cognome}} - <strong>Nome:</strong> {{listState.details.nome}} -
             <strong>data di nascita:</strong> {{listState.details.dataDiNascita}} -
@@ -9,13 +9,10 @@
             <strong>data:</strong> {{listState.details.data}}
         </p>
     </div>
-    <div class="operation-info">
+    <div id="operation-info">
         <strong>Presidio: </strong>{{listState.hospital}} <br />
         <strong>Sala operatoria: </strong>{{listState.opRoom}}
     </div>
-
-
-
 </section>
 
 <div class="slide" data-my-checklist ng-hide="nonConformityView">
