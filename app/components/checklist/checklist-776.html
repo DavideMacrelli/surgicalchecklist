@@ -1,13 +1,13 @@
 <h2 id="list-header">Modulo 776/a - cheklist</h2>
-<form class="phase">
+<form class="phase" ng-repeat="phase in checklist">
     <hgroup class="phase-title">
-        <h3>SIGN-IN</h3>
-        <h6>i 7 controlli da effettuare prima dell'induzione dell'anestesia</h6>
+        <h3>{{phase.title}}</h3>
+        <h6>{{phase.description}}</h6>
     </hgroup>
-    <fieldset class="step" ng-repeat="step in checklistData.steps" ng-class="{'active': $index == listState.step, 'disabled': $index != listState.step}" >
+    <fieldset class="step" ng-repeat="step in phase.steps" ng-class="{'active': $index == listState.step, 'disabled': $index != listState.step}" >
         <legend>{{step.legend}}</legend><br />
-        <div class="option" ng-repeat="option in step.options">
-            <input type="checkbox" name="" value="" ng-click="nextStep()"/> {{option}}
+        <div class="option" ng-click="nextStep()" ng-repeat="option in step.options" >
+            <input type="checkbox" name="" value=""/> {{option}}
         </div>
         <button type="button" class="signal-button" ng-click="signalNonConformity($index)">Non conformità</button>
     </fieldset>

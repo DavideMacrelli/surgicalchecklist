@@ -9,117 +9,53 @@ angular.module('checklistApp.checklistView', [])
     });
 }])
 
-.controller('checklistController',['$scope', '$log', 'listState', function($scope, $log, listState) {
-    //La struttura della checklist
-    //TODO: da mettere in un file json che viene recuperato con http get
-    //TODO: completare la prima fase
-    var checklist = [
-        {
-            legend: "Il paziente ha confermato:",
-            options: [
-                "Identità"
-            ]
-        },
+.controller('checklistController',['$scope', '$log', 'listState', '$http', 'errorPage', function($scope, $log, listState, $http, signalError) {
 
-        {
-            legend: "Il paziente ha confermato:",
-            options: [
-                "Sede intervento"
-            ]
-        },
+    var checklistURL = "content/checklist.json";
+    var nonConformitySheetURL = "content/non-conformity-sheet.json";
+    $scope.checklist = [];
+    $scope.nonConformitySheet = [];
 
-        {
-            legend: "Il paziente ha confermato:",
-            options: [
-                "Procedura"
-            ]
-        },
+    $http.get(checklistURL).then(function(response) {
+        //callback promise fullfilled
+        if(typeof(response.data) == 'object'){
+            //risposta valida
+            $log.log("risposta valida");
+            $scope.checklist = response.data;
+            $log.log($scope.checklist);
+        } else {
+            //risposta invalida
+            $log.log("risposta invalida");
+            signalError("01", "C'è stato un errore nell recupero della checklist");
+        }
 
-        {
-            legend: "Il paziente ha confermato:",
-            options: [
-                "Consensi ( anestesiologico/chirurgico/emocomponeneti)"
-            ]
-        },
+    },function(response) {
+        //callback rejected promise
+        $log.log("la get ha avuto esito negativo" + response);
+        signalError(response.status, response.statusText);
+    });
 
-        {
-            legend: "Verifica presenza e correttezza della marchature del sito dell'intervento",
-            options: [
-                "",
-                "non applicabile"
-            ]
-        },
+    $http.get(nonConformitySheetURL).then(function(response) {
+        //callback promise fullfilled
+        if(typeof(response.data) == 'object'){
+            //risposta valida
+            $log.log("risposta valida");
+            $scope.nonConformitySheet = response.data;
+            $log.log($scope.nonConformitySheet);
+        } else {
+            //risposta invalida
+            $log.log("risposta invalida");
+            signalError("01", "C'è stato un errore nell recupero della scheda non-conformità");
+        }
 
-        {
-            legend: "Controlli delle apparecchiature di anestesia completati(compreso pulsiossimetro presente)",
-            options: [
-                ""
-            ]
-        },
-    ];
-
-    //Struttura scheda rivelazione anomalie
-    var nonConformitySheet = [
-        {
-            legend: "Identità Paziente:",
-            options: [
-                "No braccialetto",
-                "No barcode/nosologico",
-                "No nosologico",
-                "No cartella"
-            ]
-        },
-
-        {
-            legend: "Sede intervento:",
-            options: [
-                "Non conferma della sede"
-            ]
-        },
-
-        {
-            legend: "Procedura Chirurgica",
-            options: [
-                "Non conferma della Procedura"
-            ]
-        },
-
-        {
-            legend: "Consenso",
-            options: [
-                "mancata firma del consenso chirurgico",
-                "mancata firma del consenso anestesiologico",
-                "mancata firma del consenso emocomponenti"
-            ]
-        },
-
-        {
-            legend: "Il sito dell'intervento marcato",
-            options: [
-                "Sito non marcato",
-                "errata marcatura del sito"
-            ]
-        },
-
-        {
-            legend: "Controlli apparecchiature anestesia",
-            options: [
-                "test apparecchiature non effettuati",
-                "non corretto posizionamento"
-            ]
-        },
-    ];
+    },function(response) {
+        //callback rejected promise
+        $log.log("la get ha avuto esito negativo" + response);
+        signalError(response.status, response.statusText);
+    });
 
     //flag per il cambio di vista tra checklist e scheda Non-conformità
     $scope.nonConformityView = false;
-
-    $scope.checklistData = {
-        steps: checklist
-    };
-
-    $scope.nonConformitySheetData = {
-        steps: nonConformitySheet
-    };
 
     //lega il model allo stato della checklist sul service
     $scope.listState = listState.getState();

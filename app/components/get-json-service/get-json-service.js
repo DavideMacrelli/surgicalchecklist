@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('checklistApp.jsonListMatcher',[])
+angular.module('checklistApp.getJsonService',[])
 
-/**
- * matchJsonList uses the '$http' service to get the list of operation stored in a json file
+/**TODO
+ * getJson uses the '$http' service to get the list of operation stored in a json file
  * return an object if a match is found or rejects the promise otherwise
  * errors are stored in property that callers can obtain with the 'getError' method
  */
-.factory('matchJsonList', ['$http', '$log', '$q', function($http, $log, $q) {
+.factory('getJson', ['$http', '$log', '$q', function($http, $log, $q) {
     var errorMessage = {
         code: "",
         message: ""
@@ -29,29 +29,18 @@ angular.module('checklistApp.jsonListMatcher',[])
         getError: function() {
             return errorMessage;
         },
-        getMatch: function(barcode) {
-            return $http.get('content/jsontest.json').then(function(response) {
+        getResource: function(url) {
+            return $http.get(url).then(function(response) {
                 //la get restituisce una promise
+                $log.log("got JSON: " + response.data);
                 if(typeof(response.data) == 'object'){
                     //risposta valida
-                    $log.log("risposta valida: ");
-                    var matchList = [];
-                    $log.log("Typo di response data: " + typeof(response.data[barcode]));
-                    if(typeof(response.data[barcode]) != 'undefined'){
-                        //c'è un match nella lista
-                        matchList.push(response.data[barcode]);
-                        $log.log("C'è un match: " + matchList[0]);
-                        return matchList[0];
-                    } else {
-                        //non c'è un match
-                        $log.log("Non c'è un match");
-                        setError('00', 'Nessun intervento trovato');
-                        return $q.reject(response.data);
-                    }
+                    $log.log("risposta valida");
+                    return response.data;
                 } else {
                     //risposta invalida
                     $log.log("risposta invalida");
-                    setError("01", "Risposta invalida");
+                    setError("01", "C'è stato un errore nell recupero della checklist");
                     return $q.reject(response.data);
                 }
 
@@ -61,8 +50,6 @@ angular.module('checklistApp.jsonListMatcher',[])
                 setError(response.status, response.statusText);
                 return $q.reject(response.data);
             });
-
         }
     };
-
 }]);

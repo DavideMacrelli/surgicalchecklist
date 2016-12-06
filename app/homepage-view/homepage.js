@@ -10,7 +10,7 @@ angular.module('checklistApp.homepage', ['ngRoute'])
 
 }])
 
-.controller('homepageController', ['$scope', '$log', 'listState', 'errorPage', '$location', function($scope, $log, listState, signalError,$location) {
+.controller('homepageController', ['$scope', '$log', 'listState', function($scope, $log, listState) {
 
     $scope.startForm = {
 
@@ -21,8 +21,4 @@ angular.module('checklistApp.homepage', ['ngRoute'])
         listState.setChecklistInfo($scope.startForm);
         listState.startList();
     };
-
-    $scope.$on('$destroy', function() {
-
-    });
 }]);

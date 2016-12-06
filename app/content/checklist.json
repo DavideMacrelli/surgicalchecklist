@@ -1,0 +1,167 @@
+[{
+	"title": "SIGN-IN",
+	"description": "i 7 controlli da effettuare prima dell'induzione dell'anestesia",
+	"steps": [{
+			"legend": "Identità Paziente:",
+			"options": [
+				"No braccialetto",
+				"No barcode/nosologico",
+				"No nosologico",
+				"No cartella"
+			]
+		},
+
+		{
+			"legend": "Sede intervento:",
+			"options": [
+				"Non conferma della sede"
+			]
+		},
+
+		{
+			"legend": "Procedura Chirurgica",
+			"options": [
+				"Non conferma della Procedura"
+			]
+		},
+
+		{
+			"legend": "Consenso",
+			"options": [
+				"mancata firma del consenso chirurgico",
+				"mancata firma del consenso anestesiologico",
+				"mancata firma del consenso emocomponenti"
+			]
+		},
+
+		{
+			"legend": "Il sito dell'intervento marcato",
+			"options": [
+				"Sito non marcato",
+				"errata marcatura del sito"
+			]
+		},
+
+		{
+			"legend": "Controlli apparecchiature anestesia",
+			"options": [
+				"test apparecchiature non effettuati",
+				"non corretto posizionamento"
+			]
+		},
+
+		{
+			"legend": "Controlli apparecchiature di sala",
+			"options": [
+				"non corretto funzionamento"
+			]
+		},
+
+		{
+			"legend": "Rischi paziente: Allergie",
+			"options": [
+				"mancata segnalazione allergia",
+				"mancata visita anestesiologica"
+			]
+		},
+
+		{
+			"legend": "Rischi paziente: Viee Aeree",
+			"options": [
+				"mancata segnalazione di criticità"
+			]
+		},
+
+		{
+			"legend": "Rischi paziente: Perdite ematiche/emocomponenti",
+			"options": [
+				"mancata richiesta di unità a disposizione",
+				"mancata valutazione rischio emorragico"
+			]
+		}
+	]
+
+}, {
+	"title": "TIME-OUT",
+	"description": "i 7 controlli da effettuare prima dell'induzione dell'anestesia",
+	"steps": [{
+			"legend": "Identità Paziente:",
+			"options": [
+				"No braccialetto",
+				"No barcode/nosologico",
+				"No nosologico",
+				"No cartella"
+			]
+		},
+
+		{
+			"legend": "Sede intervento:",
+			"options": [
+				"Non conferma della sede"
+			]
+		},
+
+		{
+			"legend": "Procedura Chirurgica",
+			"options": [
+				"Non conferma della Procedura"
+			]
+		},
+
+		{
+			"legend": "Consenso",
+			"options": [
+				"mancata firma del consenso chirurgico",
+				"mancata firma del consenso anestesiologico",
+				"mancata firma del consenso emocomponenti"
+			]
+		},
+
+		{
+			"legend": "Il sito dell'intervento marcato",
+			"options": [
+				"Sito non marcato",
+				"errata marcatura del sito"
+			]
+		},
+
+		{
+			"legend": "Controlli apparecchiature anestesia",
+			"options": [
+				"test apparecchiature non effettuati",
+				"non corretto posizionamento"
+			]
+		},
+
+		{
+			"legend": "Controlli apparecchiature di sala",
+			"options": [
+				"non corretto funzionamento"
+			]
+		},
+
+		{
+			"legend": "Rischi paziente: Allergie",
+			"options": [
+				"mancata segnalazione allergia",
+				"mancata visita anestesiologica"
+			]
+		},
+
+		{
+			"legend": "Rischi paziente: Viee Aeree",
+			"options": [
+				"mancata segnalazione di criticità"
+			]
+		},
+
+		{
+			"legend": "Rischi paziente: Perdite ematiche/emocomponenti",
+			"options": [
+				"mancata richiesta di unità a disposizione",
+				"mancata valutazione rischio emorragico"
+			]
+		}
+	]
+
+}]

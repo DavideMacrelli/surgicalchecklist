@@ -6,7 +6,7 @@ angular.module('checklistApp', [
     'checklistApp.homepage',
     'checklistApp.errorPage',
     'checklistApp.errorService',
-    'checklistApp.jsonListMatcher',
+    'checklistApp.getJsonService',
     'checklistApp.checklistView',
     'checklistApp.checklistDirective',
     'checklistApp.listStateService'
