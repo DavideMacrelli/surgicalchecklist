@@ -2,81 +2,68 @@
 	"title": "SIGN-IN",
 	"description": "i 7 controlli da effettuare prima dell'induzione dell'anestesia",
 	"steps": [{
-			"legend": "Identità Paziente:",
+			"legend": "Il paziente ha confermato:",
 			"options": [
-				"No braccialetto",
-				"No barcode/nosologico",
-				"No nosologico",
-				"No cartella"
+				"Identità"
 			]
 		},
 
 		{
-			"legend": "Sede intervento:",
+			"legend": "Il paziente ha confermato:",
 			"options": [
-				"Non conferma della sede"
+				"Sede intervento"
 			]
 		},
 
 		{
-			"legend": "Procedura Chirurgica",
+			"legend": "Il paziente ha confermato:",
 			"options": [
-				"Non conferma della Procedura"
+				"Procedura"
 			]
 		},
 
 		{
-			"legend": "Consenso",
+			"legend": "Il paziente ha confermato:",
 			"options": [
-				"mancata firma del consenso chirurgico",
-				"mancata firma del consenso anestesiologico",
-				"mancata firma del consenso emocomponenti"
+				"Consensi ( anestesiologico/chirurgico/emocomponeneti)"
 			]
 		},
 
 		{
-			"legend": "Il sito dell'intervento marcato",
+			"legend": "Verifica presenza e correttezza della marchature del sito dell'intervento",
 			"options": [
-				"Sito non marcato",
-				"errata marcatura del sito"
+				"",
+				"non applicabile"
 			]
 		},
 
 		{
-			"legend": "Controlli apparecchiature anestesia",
+			"legend": "Controlli delle apparecchiature di anestesia completati(compreso pulsiossimetro presente)",
 			"options": [
-				"test apparecchiature non effettuati",
-				"non corretto posizionamento"
+				""
 			]
-		},
-
-		{
-			"legend": "Controlli apparecchiature di sala",
+		}, {
+			"legend": "Verifica corretto funzionamento apparecchiature di sala operatoria",
 			"options": [
-				"non corretto funzionamento"
+				""
 			]
-		},
-
-		{
-			"legend": "Rischi paziente: Allergie",
+		}, {
+			"legend": "Identificazione dei rischi del paziente: Il paziente riferisce allergie?",
 			"options": [
-				"mancata segnalazione allergia",
-				"mancata visita anestesiologica"
+				"Si",
+				"No"
 			]
-		},
-
-		{
-			"legend": "Rischi paziente: Viee Aeree",
+		}, {
+			"legend": "Il paziente presenta difficoltà di gestione delle vie aeree o rischio di aspirazione?",
 			"options": [
-				"mancata segnalazione di criticità"
+				"Si, strumentazione/assistenza disponibile",
+				"No"
 			]
-		},
-
-		{
-			"legend": "Rischi paziente: Perdite ematiche/emocomponenti",
+		}, {
+			"legend": "Il paziente presenta rischio di perdite ematiche > 500ml (7ml per Kg nei bambini)?",
 			"options": [
-				"mancata richiesta di unità a disposizione",
-				"mancata valutazione rischio emorragico"
+				"Si, accesso endovenoso adeguato e emocomponenti richiesti",
+				"No"
 			]
 		}
 	]
@@ -85,81 +72,53 @@
 	"title": "TIME-OUT",
 	"description": "i 7 controlli da effettuare prima dell'induzione dell'anestesia",
 	"steps": [{
-			"legend": "Identità Paziente:",
+			"legend": "I nomi e le funzioni dei componenti dell'èquipe sono conosciuti a tutti i suoi membri e previsti nella nota operatoria",
 			"options": [
-				"No braccialetto",
-				"No barcode/nosologico",
-				"No nosologico",
-				"No cartella"
+				""
 			]
 		},
 
 		{
-			"legend": "Sede intervento:",
+			"legend": "Chirurgo, Anestesista e Infermiere confermano: Identità paziente, procedura, sito chirurgico e posizionamento",
 			"options": [
-				"Non conferma della sede"
+				""
 			]
 		},
 
 		{
-			"legend": "Procedura Chirurgica",
+			"legend": "Il Chirurgo ha informato l'equipè sulla durata prevista per l'intervento, richi di perdite ematiche ed altre criticità",
 			"options": [
-				"Non conferma della Procedura"
+				""
 			]
 		},
 
 		{
-			"legend": "Consenso",
+			"legend": "L'Anestesista ha informato l'equipè sulle specificità del paziente, riscio ASA ed altre criticità",
 			"options": [
-				"mancata firma del consenso chirurgico",
-				"mancata firma del consenso anestesiologico",
-				"mancata firma del consenso emocomponenti"
+				""
 			]
 		},
 
 		{
-			"legend": "Il sito dell'intervento marcato",
+			"legend": "L'Infermiere ha comunicato all'equipè la verifica di sterilità(compresi i risultati degli indicatori),eventuali problemi con i dispositivi medici e alte criticità ",
 			"options": [
-				"Sito non marcato",
-				"errata marcatura del sito"
+				""
 			]
 		},
 
 		{
-			"legend": "Controlli apparecchiature anestesia",
+			"legend": "Verifica effettuazione e correttezza della profilassi antibiotica",
 			"options": [
-				"test apparecchiature non effettuati",
-				"non corretto posizionamento"
+				"",
+				"non applicabile"
 			]
 		},
 
 		{
-			"legend": "Controlli apparecchiature di sala",
+			"legend": "Visualizzazione immagini diagnostiche",
 			"options": [
-				"non corretto funzionamento"
-			]
-		},
-
-		{
-			"legend": "Rischi paziente: Allergie",
-			"options": [
-				"mancata segnalazione allergia",
-				"mancata visita anestesiologica"
-			]
-		},
-
-		{
-			"legend": "Rischi paziente: Viee Aeree",
-			"options": [
-				"mancata segnalazione di criticità"
-			]
-		},
-
-		{
-			"legend": "Rischi paziente: Perdite ematiche/emocomponenti",
-			"options": [
-				"mancata richiesta di unità a disposizione",
-				"mancata valutazione rischio emorragico"
+				"",
+				"non applicabile"
 			]
 		}
 	]
