@@ -13,6 +13,7 @@
         <strong>Presidio: </strong>{{listState.hospital}} <br />
         <strong>Sala operatoria: </strong>{{listState.opRoom}}
     </div>
+    <div class="clear"></div>
 </section>
 
 <div class="slide" data-my-checklist ng-hide="nonConformityView">
@@ -32,6 +33,7 @@
             <div class="option" ng-repeat="option in step.options">
                 <input type="checkbox" name="" value=""/> {{option}}
             </div>
+            <br />
             <button type="button" class="nonconformity-submit" ng-click="submitNonConformity()">Segnala Non conformità</button>
         </fieldset>
     </form>

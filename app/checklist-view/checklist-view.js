@@ -10,7 +10,7 @@ angular.module('checklistApp.checklistView', [])
 }])
 
 .controller('checklistController',['$scope', '$log', 'listState', '$http', 'errorPage', function($scope, $log, listState, $http, signalError) {
-    //TODO: fare un servizio che recupera risorse, 
+    //TODO: fare un servizio che recupera risorse,
     var checklistURL = "content/checklist.json";
     var nonConformitySheetURL = "content/non-conformity-sheet.json";
     $scope.checklist = [];
@@ -62,6 +62,10 @@ angular.module('checklistApp.checklistView', [])
 
     $scope.nextStep = function() {
         listState.nextStep();
+    };
+
+    $scope.prevStep = function () {
+        listState.prevStep();
     };
 
     //ogni volta che il controller viene eliminato, fa il listen sull'evento $destroy

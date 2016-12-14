@@ -53,7 +53,9 @@ angular.module('checklistApp.listStateService',[])
          * Ritorna allo step precedente
          */
         prevStep: function () {
-            currentListState.step--;
+            if(currentListState.step !== 0){
+                currentListState.step--;
+            }
         },
 
         /**

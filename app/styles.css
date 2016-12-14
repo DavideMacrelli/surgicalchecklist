@@ -9,6 +9,21 @@ body{
 main{
     margin: 0 auto;
 }
+
+.clear{
+    clear: both;
+}
+
+.signal-button{
+    display: block;
+}
+
+.option{
+    margin-right: 2%;
+    float: left;
+    min-width: 15%;
+}
+
 header,
 #list-header,
 .phase-title{
@@ -36,18 +51,11 @@ strong{
     margin: 2em auto;
 }
 
-.op-match{
-    background-color: #eee;
-    border-radius: 20px;
-}
-
 .active{
     font-weight: bold;
 }
 
-.disabled .option,
-.disabled .signal-button,
-.disabled .nonconformity-submit{
+.disabled .step-content{
     display: none;
 }
 
@@ -72,11 +80,6 @@ strong{
     float: right;
 }
 
-#checklist-info{
-    height: 100px;
-    width: auto;
-
-}
 
 
 
