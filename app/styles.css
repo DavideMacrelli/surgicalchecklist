@@ -25,12 +25,12 @@ main{
 }
 
 header,
-#list-header,
+#checklist-title,
 .phase-title{
     text-align: center;
 }
 
-#list-header{
+#checklist-title{
     background-color: #ddd;
     border-color: #444;
 }

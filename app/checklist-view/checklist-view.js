@@ -60,12 +60,31 @@ angular.module('checklistApp.checklistView', [])
     //lega il model allo stato della checklist sul service
     $scope.listState = listState.getState();
 
-    $scope.nextStep = function() {
-        listState.nextStep();
+    $scope.checklistControls = {
+        nextStep: function () {
+            listState.nextStep();
+        },
+
+        prevStep: function () {
+            listState.prevStep();
+        },
+
+        signalNonConformity: function () {
+            $scope.nonConformityView = true;
+        }
     };
 
-    $scope.prevStep = function () {
-        listState.prevStep();
+    $scope.nonConformityControls = {
+        nextStep: function () {            
+        },
+
+        prevStep: function () {
+            listState.prevStep();
+        },
+
+        signalNonConformity: function () {
+            $scope.nonConformityView = false;
+        }
     };
 
     //ogni volta che il controller viene eliminato, fa il listen sull'evento $destroy
@@ -73,17 +92,6 @@ angular.module('checklistApp.checklistView', [])
     $scope.$on('$destroy', function() {
         listState.resetState();
     });
-
-
-    $scope.signalNonConformity = function(step) {
-            $log.log("Non Conformity in step N: " + step);
-            $scope.nonConformityView = true;
-    };
-
-    $scope.submitNonConformity = function(){
-            $scope.nonConformityView = false;
-    };
-
 
 }])
 ;
