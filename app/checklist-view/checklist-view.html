@@ -16,12 +16,29 @@
     <div class="clear"></div>
 </section>
 
-<div class="slide" data-my-checklist ng-hide="nonConformityView">
+<div class="slide"
+    ng-switch on="nonConformityView">
+    <div data-my-checklist
+         data-checklist-structure="checklist"
+         data-checklist-state="listState"
+         data-checklist-controls="checklistControls"
+         data-checklist-title="Modulo 776/a - checklist"
+         ng-switch-when="false">
+    </div>
+    <div data-my-checklist
+         data-checklist-structure="nonConformitySheet"
+         data-checklist-state="listState"
+         data-checklist-controls="nonConformityControls"
+         data-checklist-title="Modulo 776/b - Rivelazione delle Deviazioni dallo Standard Regionale"
+         ng-switch-when="true">
+    </div>
+      <div class="animate-switch" ng-switch-default></div>
+  </div>
 
-</div>
 
+<!--
 <div class="nonconformity-form slide" ng-hide="!nonConformityView">
-    <h2 id="list-header">Modulo 776/b - Rivelazione delle Deviazioni dallo Standard Regionale</h2>
+    <h2 id="checklist-title">Modulo 776/b - Rivelazione delle Deviazioni dallo Standard Regionale</h2>
     <form class="phase" ng-repeat="phase in nonConformitySheet">
         <hgroup class="phase-title">
             <h3>{{phase.title}}</h3>
@@ -39,3 +56,4 @@
     </form>
 
 </div>
+-->
