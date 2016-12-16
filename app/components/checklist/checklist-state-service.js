@@ -21,9 +21,14 @@ angular.module('checklistApp.listStateService',[])
         patientDetails: {},
         hospital: "",
         opRoom: "",
+        currentPhase: {},
+        activePhase: {},
         phase: 0,
         step: 0
     };
+
+    var listPhases = [];
+    var checklistStructure = {};
 
     return {
         /**
@@ -34,12 +39,19 @@ angular.module('checklistApp.listStateService',[])
             return currentListState;
         },
 
+        getChecklistStructure: function() {            
+            $log.log(checklistStructure);
+            return checklistStructure;
+        },
+
         /**
          * Avvia la compilazione di una checklist,
          *
          * @param  {Object} parametri iniziali
          */
-        startList: function() {
+        startList: function(checklistData) {
+            checklistStructure = checklistData;
+            $log.log(checklistStructure);
             $location.path('/checklist-view');
         },
 
