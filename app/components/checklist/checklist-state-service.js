@@ -27,6 +27,12 @@ angular.module('checklistApp.listStateService',[])
         step: 0
     };
 
+    function phase(phaseNumber, numberOfSteps, currentStep) {
+        this.phaseNumber = phaseNumber;
+        this.numberOfSteps = numberOfSteps;
+        this.currentStep = currentStep;
+    }
+
     var listPhases = [];
     var checklistStructure = {};
 
@@ -39,7 +45,7 @@ angular.module('checklistApp.listStateService',[])
             return currentListState;
         },
 
-        getChecklistStructure: function() {            
+        getChecklistStructure: function() {
             $log.log(checklistStructure);
             return checklistStructure;
         },
@@ -52,7 +58,16 @@ angular.module('checklistApp.listStateService',[])
         startList: function(checklistData) {
             checklistStructure = checklistData;
             $log.log(checklistStructure);
+            //costruisco l'array che modella le fasi della checklist
+            for (var i = 0; i < checklistStructure.checklist.length; i++) {
+                listPhases[i] = new phase(i, checklistStructure.checklist[i].steps.length, 0);
+                $log.log("creata nuova fase");
+                $log.log(listPhases[i]);
+            }        
+            $log.log("le fasi sono:");
+            $log.log(listPhases);
             $location.path('/checklist-view');
+
         },
 
         /**

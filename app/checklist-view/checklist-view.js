@@ -13,10 +13,7 @@ angular.module('checklistApp.checklistView', [])
     //TODO: fare un servizio che recupera risorse,
     var checklistStructure = listState.getChecklistStructure();
     $scope.checklist = checklistStructure.checklist;
-    $scope.nonConformitySheet = checklistStructure.nonConformitySheet;
-    $log.log("i dati nello scope sono:");
-    $log.log($scope.checklist);
-    $log.log($scope.nonConformitySheet);
+    $scope.nonConformitySheet = checklistStructure.nonConformitySheet;    
 
     //flag per il cambio di vista tra checklist e scheda Non-conformità
     $scope.nonConformityView = false;

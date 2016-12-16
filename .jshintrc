@@ -1,8 +1,10 @@
 {
   "strict": "global",
+  "validthis": true, 
   "globals": {
     // Angular
     "angular": false,
+
 
     // Angular mocks
     "module": false,
