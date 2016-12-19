@@ -11,48 +11,9 @@ angular.module('checklistApp.checklistView', [])
 
 .controller('checklistController',['$scope', '$log', 'listState', '$http', 'errorPage', function($scope, $log, listState, $http, signalError) {
     //TODO: fare un servizio che recupera risorse,
-    var checklistURL = "content/checklist.json";
-    var nonConformitySheetURL = "content/non-conformity-sheet.json";
-    $scope.checklist = [];
-    $scope.nonConformitySheet = [];
-
-    $http.get(checklistURL).then(function(response) {
-        //callback promise fullfilled
-        if(typeof(response.data) == 'object'){
-            //risposta valida
-            $log.log("risposta valida");
-            $scope.checklist = response.data;
-            $log.log($scope.checklist);
-        } else {
-            //risposta invalida
-            $log.log("risposta invalida");
-            signalError("01", "C'è stato un errore nell recupero della checklist");
-        }
-
-    },function(response) {
-        //callback rejected promise
-        $log.log("la get ha avuto esito negativo" + response);
-        signalError(response.status, response.statusText);
-    });
-
-    $http.get(nonConformitySheetURL).then(function(response) {
-        //callback promise fullfilled
-        if(typeof(response.data) == 'object'){
-            //risposta valida
-            $log.log("risposta valida");
-            $scope.nonConformitySheet = response.data;
-            $log.log($scope.nonConformitySheet);
-        } else {
-            //risposta invalida
-            $log.log("risposta invalida");
-            signalError("01", "C'è stato un errore nell recupero della scheda non-conformità");
-        }
-
-    },function(response) {
-        //callback rejected promise
-        $log.log("la get ha avuto esito negativo" + response);
-        signalError(response.status, response.statusText);
-    });
+    var checklistStructure = listState.getChecklistStructure();
+    $scope.checklist = checklistStructure.checklist;
+    $scope.nonConformitySheet = checklistStructure.nonConformitySheet;
 
     //flag per il cambio di vista tra checklist e scheda Non-conformità
     $scope.nonConformityView = false;
@@ -69,17 +30,26 @@ angular.module('checklistApp.checklistView', [])
             listState.prevStep();
         },
 
-        signalNonConformity: function () {
-            $scope.nonConformityView = true;
+        signalNonConformity: function (phaseNum, stepNum) {
+            $log.log("Non conformità all passo: " + stepNum + " fase: " + phaseNum);
+            // controllo che esista un passo m alla fase n nella scheda delle non conformità
+            if ($scope.nonConformitySheet[phaseNum].steps[stepNum].legend != "Non Disponibile") {
+                $log.log("C'è!: " + $scope.nonConformitySheet[phaseNum].steps[stepNum].legend);
+                $scope.nonConformityView = true;
+            }
+        },
+
+        nextPhase: function () {
+            listState.nextPhase();
         }
     };
 
     $scope.nonConformityControls = {
-        nextStep: function () {            
+        nextStep: function () {
         },
 
         prevStep: function () {
-            listState.prevStep();
+
         },
 
         signalNonConformity: function () {

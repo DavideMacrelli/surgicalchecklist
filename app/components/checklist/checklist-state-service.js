@@ -21,9 +21,18 @@ angular.module('checklistApp.listStateService',[])
         patientDetails: {},
         hospital: "",
         opRoom: "",
-        phase: 0,
-        step: 0
+        currentPhase: {},   //la fase a cui è arrivata la compilazione
+        activePhase: {},    //la fase visualizzata
     };
+
+    function phase(phaseNumber, numberOfSteps, currentStep) {
+        this.phaseNumber = phaseNumber;
+        this.numberOfSteps = numberOfSteps;
+        this.currentStep = currentStep;
+    }
+
+    var listPhases = [];
+    var checklistStructure = {};
 
     return {
         /**
@@ -34,27 +43,45 @@ angular.module('checklistApp.listStateService',[])
             return currentListState;
         },
 
+        getChecklistStructure: function() {
+            $log.log(checklistStructure);
+            return checklistStructure;
+        },
+
         /**
          * Avvia la compilazione di una checklist,
          *
          * @param  {Object} parametri iniziali
          */
-        startList: function() {
+        startList: function(checklistData) {
+            checklistStructure = checklistData;
+            $log.log(checklistStructure);
+            //costruisco l'array che modella le fasi della checklist
+            for (var i = 0; i < checklistStructure.checklist.length; i++) {
+                listPhases[i] = new phase(i, checklistStructure.checklist[i].steps.length, 0);
+                $log.log("creata nuova fase");
+                $log.log(listPhases[i]);
+            }
+            currentListState.currentPhase = listPhases[0];
+            currentListState.activePhase = listPhases[0];
+            $log.log("le fasi sono:");
+            $log.log(listPhases);
             $location.path('/checklist-view');
+
         },
 
         /**
          * Avanza al prossimo step della checklist
          */
         nextStep: function() {
-            currentListState.step++;
+            currentListState.currentPhase.currentStep++;
         },
         /**
          * Ritorna allo step precedente
          */
         prevStep: function () {
-            if(currentListState.step !== 0){
-                currentListState.step--;
+            if(currentListState.currentPhase.currentStep !== 0){
+                currentListState.currentPhase.currentStep--;
             }
         },
 
@@ -62,14 +89,8 @@ angular.module('checklistApp.listStateService',[])
          * avanza alla fase sucessiva
          */
         nextPhase: function () {
-            currentListState.phase++;
-        },
-
-        /**
-         * ritorna alla fase precedente
-         */
-        prevPhase: function () {
-            currentListState.phase--;
+            currentListState.currentPhase = listPhases[currentListState.currentPhase.phaseNumber + 1];
+            currentListState.activePhase = currentListState.currentPhase;
         },
 
         /**
@@ -80,8 +101,8 @@ angular.module('checklistApp.listStateService',[])
                 patientDetails: {},
                 hospital: "",
                 opRoom: "",
-                phase: 0,
-                step: 0
+                currentPhase: {},   //la fase a cui è arrivata la compilazione
+                activePhase: {},    //la fase visualizzata
             };
         },
 

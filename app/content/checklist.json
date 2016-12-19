@@ -2,35 +2,35 @@
 	"title": "SIGN-IN",
 	"description": "i 7 controlli da effettuare prima dell'induzione dell'anestesia",
 	"steps": [{
-			"legend": "Il paziente ha confermato:",
+			"legend": "1.1) Il paziente ha confermato: Identità",
 			"options": [
 				"Identità"
 			]
 		},
 
 		{
-			"legend": "Il paziente ha confermato:",
+			"legend": "1.2) Il paziente ha confermato: Sede intervento",
 			"options": [
 				"Sede intervento"
 			]
 		},
 
 		{
-			"legend": "Il paziente ha confermato:",
+			"legend": "1.3) Il paziente ha confermato: Procedura",
 			"options": [
 				"Procedura"
 			]
 		},
 
 		{
-			"legend": "Il paziente ha confermato:",
+			"legend": "1.4) Il paziente ha confermato: Consensi",
 			"options": [
 				"Consensi ( anestesiologico/chirurgico/emocomponeneti)"
 			]
 		},
 
 		{
-			"legend": "Verifica presenza e correttezza della marchature del sito dell'intervento",
+			"legend": "2) Verifica presenza e correttezza della marchatura del sito dell'intervento",
 			"options": [
 				"",
 				"non applicabile"
@@ -38,29 +38,29 @@
 		},
 
 		{
-			"legend": "Controlli delle apparecchiature di anestesia completati(compreso pulsiossimetro presente)",
+			"legend": "3) Controlli delle apparecchiature di anestesia completati(compreso pulsiossimetro presente)",
 			"options": [
 				""
 			]
 		}, {
-			"legend": "Verifica corretto funzionamento apparecchiature di sala operatoria",
+			"legend": "4) Verifica corretto funzionamento apparecchiature di sala operatoria",
 			"options": [
 				""
 			]
 		}, {
-			"legend": "Identificazione dei rischi del paziente: Il paziente riferisce allergie?",
+			"legend": "5) Identificazione dei rischi del paziente: Il paziente riferisce allergie?",
 			"options": [
 				"Si",
 				"No"
 			]
 		}, {
-			"legend": "Il paziente presenta difficoltà di gestione delle vie aeree o rischio di aspirazione?",
+			"legend": "6) Il paziente presenta difficoltà di gestione delle vie aeree o rischio di aspirazione?",
 			"options": [
 				"Si, strumentazione/assistenza disponibile",
 				"No"
 			]
 		}, {
-			"legend": "Il paziente presenta rischio di perdite ematiche > 500ml (7ml per Kg nei bambini)?",
+			"legend": "7) Il paziente presenta rischio di perdite ematiche > 500ml (7ml per Kg nei bambini)?",
 			"options": [
 				"Si, accesso endovenoso adeguato e emocomponenti richiesti",
 				"No"
@@ -70,44 +70,44 @@
 
 }, {
 	"title": "TIME-OUT",
-	"description": "i 7 controlli da effettuare prima dell'induzione dell'anestesia",
+	"description": "i 7 controlli da effettuare prima dell'incisione della cute",
 	"steps": [{
-			"legend": "I nomi e le funzioni dei componenti dell'èquipe sono conosciuti a tutti i suoi membri e previsti nella nota operatoria",
+			"legend": "1) I nomi e le funzioni dei componenti dell'èquipe sono conosciuti a tutti i suoi membri e previsti nella nota operatoria",
 			"options": [
 				""
 			]
 		},
 
 		{
-			"legend": "Chirurgo, Anestesista e Infermiere confermano: Identità paziente, procedura, sito chirurgico e posizionamento",
+			"legend": "2) Chirurgo, Anestesista e Infermiere confermano: Identità paziente, procedura, sito chirurgico e posizionamento",
 			"options": [
 				""
 			]
 		},
 
 		{
-			"legend": "Il Chirurgo ha informato l'equipè sulla durata prevista per l'intervento, richi di perdite ematiche ed altre criticità",
+			"legend": "3) Il Chirurgo ha informato l'equipè sulla durata prevista per l'intervento, richi di perdite ematiche ed altre criticità",
 			"options": [
 				""
 			]
 		},
 
 		{
-			"legend": "L'Anestesista ha informato l'equipè sulle specificità del paziente, riscio ASA ed altre criticità",
+			"legend": "4) L'Anestesista ha informato l'equipè sulle specificità del paziente, riscio ASA ed altre criticità",
 			"options": [
 				""
 			]
 		},
 
 		{
-			"legend": "L'Infermiere ha comunicato all'equipè la verifica di sterilità(compresi i risultati degli indicatori),eventuali problemi con i dispositivi medici e alte criticità ",
+			"legend": "5) L'Infermiere ha comunicato all'equipè la verifica di sterilità(compresi i risultati degli indicatori),eventuali problemi con i dispositivi medici e alte criticità ",
 			"options": [
 				""
 			]
 		},
 
 		{
-			"legend": "Verifica effettuazione e correttezza della profilassi antibiotica",
+			"legend": "6) Verifica effettuazione e correttezza della profilassi antibiotica",
 			"options": [
 				"",
 				"non applicabile"
@@ -115,7 +115,7 @@
 		},
 
 		{
-			"legend": "Visualizzazione immagini diagnostiche",
+			"legend": "7) Visualizzazione immagini diagnostiche",
 			"options": [
 				"",
 				"non applicabile"
@@ -123,4 +123,54 @@
 		}
 	]
 
-}]
+}, {
+
+		"title": "SIGN-OUT",
+		"description": "i 6 controlli da effettuare prima dell'uscita dalla sala operatoria",
+		"steps": [{
+				"legend": "1) Conferma della procedura che è stata effettuata e registrata",
+				"options": [
+					""
+				]
+			},
+
+			{
+				"legend": "2) Verifica corretto conteggio di garze, aghi e altro strumentario",
+				"options": [
+					""
+				]
+			},
+
+			{
+				"legend": "3) Conferma che il Campione Chirurgico con relativo contenitore e richiesta è stato correttamente etichettato secondo la procedura aziendale",
+				"options": [
+					"",
+					"non applicabile"
+				]
+			},
+
+			{
+				"legend": "4) Verifica identificazione e segnalazione di problemi relativi a Dispositivi Medici",
+				"options": [
+					""
+				]
+			},
+
+			{
+				"legend": "5) Chirurgo, Anestesista e Infermiere hanno revisionato gli aspetti critici per la gestione dell'assistenza post-operatoria",
+				"options": [
+					""
+				]
+			},
+
+			{
+				"legend": "6) Verifica del piano per la profilassi del tromboembolismo post-operatorio",
+				"options": [
+					"",
+					"non applicabile"
+				]
+			}
+		]
+
+	}
+]
