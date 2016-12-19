@@ -3,7 +3,7 @@
 	"description": "i 7 controlli da effettuare prima dell'induzione dell'anestesia",
 	"steps": [
         {
-            "legend": "Identità Paziente:",
+            "legend": "1.1) Identità Paziente:",
             "options": [
                 "No braccialetto",
                 "No barcode/nosologico",
@@ -13,21 +13,21 @@
         },
 
         {
-            "legend": "Sede intervento:",
+            "legend": "1.2) Sede intervento:",
             "options": [
                 "Non conferma della sede"
             ]
         },
 
         {
-            "legend": "Procedura Chirurgica",
+            "legend": "1.3) Procedura Chirurgica",
             "options": [
                 "Non conferma della Procedura"
             ]
         },
 
         {
-            "legend": "Consenso",
+            "legend": "1.4) Consenso",
             "options": [
                 "mancata firma del consenso chirurgico",
                 "mancata firma del consenso anestesiologico",
@@ -36,7 +36,7 @@
         },
 
         {
-            "legend": "Il sito dell'intervento marcato",
+            "legend": "2) Il sito dell'intervento marcato",
             "options": [
                 "Sito non marcato",
                 "errata marcatura del sito"
@@ -44,7 +44,7 @@
         },
 
         {
-            "legend": "Controlli apparecchiature anestesia",
+            "legend": "3) Controlli apparecchiature anestesia",
             "options": [
                 "test apparecchiature non effettuati",
                 "non corretto posizionamento"
@@ -52,14 +52,14 @@
         },
 
         {
-            "legend": "Controlli apparecchiature di sala",
+            "legend": "4) Controlli apparecchiature di sala",
             "options": [
                 "non corretto funzionamento"
             ]
         },
 
         {
-            "legend": "Rischi paziente: Allergie",
+            "legend": "5) Rischi paziente: Allergie",
             "options": [
                 "mancata segnalazione allergia",
                 "mancata visita anestesiologica"
@@ -67,18 +67,119 @@
         },
 
         {
-            "legend": "Rischi paziente: Viee Aeree",
+            "legend": "6) Rischi paziente: Viee Aeree",
             "options": [
                 "mancata segnalazione di criticità"
             ]
         },
 
         {
-            "legend": "Rischi paziente: Perdite ematiche/emocomponenti",
+            "legend": "7) Rischi paziente: Perdite ematiche/emocomponenti",
             "options": [
                 "mancata richiesta di unità a disposizione",
                 "mancata valutazione rischio emorragico"
             ]
         }
     ]
-}]
+}, {
+
+		"title": "TIME-OUT",
+		"description": "i 7 controlli da effettuare prima dell'incisione della cute",
+		"steps": [
+	        {
+	            "legend": "1) Composizione èquipe",
+	            "options": [
+	                "componenti dell'èquipe modificati rispetto alla lista operatoria"
+	            ]
+	        },
+
+	        {
+	            "legend": "2) Conferma identità, Procedura, sede, posizionamento",
+	            "options": [
+	                "Variazione della procedura rispetto alla programmazione",
+					"posizionamento diverso rispetto alla lista operatoria"
+	            ]
+	        },
+
+			{
+	            "legend": "Non Disponibile",
+	            "options": []
+	        },
+
+			{
+	            "legend": "Non Disponibile",
+	            "options": []
+	        },
+
+	        {
+	            "legend": "5) Anticipazione criticità: Infermiere verifica sterilità",
+	            "options": [
+	                "Problemi di sterilità DM/Strumentario"
+	            ]
+	        },
+
+	        {
+	            "legend": "6) Profilassi antibiotica",
+	            "options": [
+	                "Profilassi non eseguita quando necessario",
+	                "Profilassi non prescritta correttamente quando necessario",
+	                "mancanza di farmaci"
+	            ]
+	        },
+
+	        {
+	            "legend": "7) Immagini diagnostiche",
+	            "options": [
+	                "Immagini non disponibili quando necessario",
+	                "errata marcatura del sito"
+	            ]
+	        }
+	    ]
+	}, {
+
+			"title": "SIGN-OUT",
+			"description": "i 6 controlli da effettuare prima dell'uscita dalla sala operatoria",
+			"steps": [
+				{
+		            "legend": "Non Disponibile",
+		            "options": []
+		        },
+		        {
+		            "legend": "2) conteggio garze",
+		            "options": [
+		                "Conteggio garze non coincidente con conteggio pre-operatorio",
+		                "Conteggio strumentario non coincidente con conteggio pre-operatorio"
+		            ]
+		        },
+
+		        {
+		            "legend": "3) Campione chirurgico",
+		            "options": [
+		                "Errata identificazione del Campione",
+						"Errata preparazione del Campione"
+		            ]
+		        },
+
+		        {
+		            "legend": "4) Dispositivi Medici",
+		            "options": [
+		                "Riscontro di difetti nell'uso dei DM"
+		            ]
+		        },
+
+				{
+		            "legend": "Non Disponibile",
+		            "options": []
+		        },
+
+		        {
+		            "legend": "6) Profilassi Tromboembolica",
+		            "options": [
+		                "Piano profilassi non eseguito",
+		                "Profilassi non prescritta correttamente",
+		                "mancanza dei farmaci/presidi"
+		            ]
+		        }
+		    ]
+
+		}]

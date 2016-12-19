@@ -30,12 +30,17 @@ angular.module('checklistApp.checklistView', [])
             listState.prevStep();
         },
 
-        signalNonConformity: function () {
-            $scope.nonConformityView = true;
+        signalNonConformity: function (phaseNum, stepNum) {
+            $log.log("Non conformità all passo: " + stepNum + " fase: " + phaseNum);
+            // controllo che esista un passo m alla fase n nella scheda delle non conformità
+            if ($scope.nonConformitySheet[phaseNum].steps[stepNum].legend != "Non Disponibile") {
+                $log.log("C'è!: " + $scope.nonConformitySheet[phaseNum].steps[stepNum].legend);
+                $scope.nonConformityView = true;
+            }
         },
 
         nextPhase: function () {
-            listState.nextPhase();            
+            listState.nextPhase();
         }
     };
 

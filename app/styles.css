@@ -14,15 +14,16 @@ main{
     clear: both;
 }
 
-.signal-button{
-    display: block;
-}
-
 .option{
     margin-right: 2%;
     float: left;
     min-width: 15%;
 }
+.options{
+    float: left;
+    width: 60%;
+}
+
 
 header,
 #checklist-title,
@@ -78,6 +79,10 @@ strong{
     display: inline;
     width: auto;
     float: right;
+}
+
+.end-phase-controls{
+    text-align: center;
 }
 
 
