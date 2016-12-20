@@ -1,14 +1,49 @@
 body{
     font-family: Helvetica,Arial,sans-serif;
+    font-size: 100%;
     margin: 0 auto;
     line-height: 1.5;
-    padding: 1.5em 1em;
     color: #555;
 }
 
-main{
-    margin: 0 auto;
+#homepage-head{
+    position: relative;
+    height: 140px;
 }
+
+#homepage-head > img{
+    width: 20%;
+    background-color: #ccc;
+}
+
+#homepage-head > h1{
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+
+.left-logo{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.right-logo{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.form-element > input {
+    height: 35px;
+    border-radius: 20px;
+    background-color: #eee;
+}
+
 
 .clear{
     clear: both;
