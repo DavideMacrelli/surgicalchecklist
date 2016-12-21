@@ -11,9 +11,14 @@ body{
     height: 140px;
 }
 
-#homepage-head > img{
-    width: 20%;
-    background-color: #ccc;
+#checklist-head{
+    position: relative;
+    margin: 1% 0 1.5% 0;
+    height: 45px;
+}
+
+header > img{
+    width: 25%;
 }
 
 #homepage-head > h1{
@@ -44,9 +49,56 @@ body{
     background-color: #eee;
 }
 
+#checklist-info{
+    font-size: 0.875em;    /*14px*/
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+
+#operation-info{
+    font-size: 0.75em;  /*12px*/
+    border-top: 1px solid #ddd
+}
+
+#checklist-title{
+    margin: 0;
+    background-color: #eee;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
 
 .clear{
     clear: both;
+}
+
+.info{
+    display: inline;
+    margin-right: 1%;
+}
+
+#phase-title{
+    border-style: solid;
+    border-color: #333;
+    border-width: 0 1px 1px 1px;
+}
+
+#phase-title > *{
+    margin: 0;
+}
+
+.step{
+    font-size: 0.75em; /*12px*/
+    margin: 2px 0;
+    height: 25px;
+}
+
+.active{
+    font-size: 0.875em; /*14px*/
+    font-weight: bold;
+    height: auto;
 }
 
 .option{
@@ -62,13 +114,8 @@ body{
 
 header,
 #checklist-title,
-.phase-title{
+#phase-title{
     text-align: center;
-}
-
-#checklist-title{
-    background-color: #ddd;
-    border-color: #444;
 }
 
 h1,
@@ -78,17 +125,11 @@ h4,
 h5,
 h6,
 strong{
-    margin: 0.8em auto;
     color: #333;
 }
 
 .phase{
-    max-width: 80%;
-    margin: 2em auto;
-}
-
-.active{
-    font-weight: bold;
+    margin: 0 4%
 }
 
 .disabled .step-content{
@@ -104,23 +145,8 @@ strong{
     margin: 2em auto;
 }
 
-#patient-info{
-    display: inline;
-    width: auto;
-    float: left;
-}
-
-#operation-info{
-    display: inline;
-    width: auto;
-    float: right;
-}
-
 .end-phase-controls{
     text-align: center;
 }
-
-
-
 
 /* Animazioni */

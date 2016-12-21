@@ -1,6 +1,6 @@
 <h2 id="checklist-title">{{title}}</h2>
 <form class="phase" ng-repeat="phase in checklist" ng-show="$index == listState.currentPhase.phaseNumber">
-    <hgroup class="phase-title">
+    <hgroup id="phase-title">
         <h3>{{phase.title}}</h3>
         <h6>{{phase.description}}</h6>
     </hgroup>
@@ -24,7 +24,7 @@
         </div>
     </fieldset>
 </form>
-<div class="end-phase-controls" ng-show="listState.currentPhase.numberOfSteps == listState.currentPhase.currentStep" >    
+<div class="end-phase-controls" ng-show="listState.currentPhase.numberOfSteps == listState.currentPhase.currentStep" >
     <button type="button" ng-click="listControls.prevStep()">Passo precedente</button>
     <button type="button" ng-click="listControls.nextPhase()">Fase sucessiva</button>
 </div>
