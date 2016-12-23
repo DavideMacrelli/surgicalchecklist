@@ -1,20 +1,20 @@
-<section id="checklist-info">
-    <div id="patient-info">
-        <p>
-            <strong>Cognome:</strong> {{listState.details.cognome}} - <strong>Nome:</strong> {{listState.details.nome}} -
-            <strong>data di nascita:</strong> {{listState.details.dataDiNascita}} -
-        </p>
-        <p>
-            <strong>Intervento Chirugico:</strong> {{listState.details.intervento}} -
-            <strong>data:</strong> {{listState.details.data}}
-        </p>
-    </div>
-    <div id="operation-info">
+<header id="checklist-head">
+    <img  class="left-logo" src="content\img\logo_reg.jpg"/>
+    <div id="checklist-info">
         <strong>Presidio: </strong>{{listState.hospital}} <br />
         <strong>Sala operatoria: </strong>{{listState.opRoom}}
     </div>
-    <div class="clear"></div>
-</section>
+    <img class="right-logo" src="content\img\logo_san-reg.jpg"/>
+</header>
+
+<div id="operation-info">
+    <div class="info"><strong>Codice Azienda:</strong> {{}} 7856587</div>
+    <div class="info"><strong>Codice Presidio:</strong> {{}} 080091</div>
+    <div class="info"><strong>Progressivo SDO:</strong> {{}} 5A8W7RTW7</div>
+    <div class="info"><strong>ID Checklist:</strong> {{}} 54869</div>
+    <div class="info"><strong>Data:</strong> {{}} 11/11/1981</div>
+    <div class="info"><strong>Ora:</strong> {{}} 20:30</div>
+</div>
 
 <div class="slide"
     ng-switch on="nonConformityView">

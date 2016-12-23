@@ -1,9 +1,10 @@
 <h2 id="checklist-title">{{title}}</h2>
 <form class="phase" ng-repeat="phase in checklist" ng-show="$index == listState.currentPhase.phaseNumber">
-    <hgroup class="phase-title">
+    <hgroup id="phase-title">
         <h3>{{phase.title}}</h3>
         <h6>{{phase.description}}</h6>
     </hgroup>
+    <div id="{{phase.title}}">
     <fieldset class="step"
               ng-repeat="step in phase.steps"
               ng-class="{'active': $index == listState.currentPhase.currentStep,
@@ -12,19 +13,41 @@
         <div class="step-content">
             <div class="options">
                 <div class="option" ng-click="listControls.nextStep()" ng-repeat="option in step.options" >
-                    <input type="checkbox" value="test" /> {{option}}
+                    <input type="checkbox" name="option" id="c{{$index}}" />
+                    <label for="">{{option}}</label>
                 </div>
                 <div class="clear"></div>
             </div>
             <div class="step-controls">
-                <button type="button" class="signal-button" ng-click="listControls.signalNonConformity($parent.$index,$index)">Non conformità</button>
-                <button type="button" ng-click="listControls.prevStep()">Passo precedente</button>
+                <button type="button"
+                        class=" btn btn-small btn-primary"
+                        ng-repeat="control in listControls.stepControls"
+                        ng-click="control.behaviour($parent.$parent.$index, $parent.$index)">
+                        <span>{{control.label}}</span>
+                </button>
+                <div class="clear"></div>
             </div>
             <div class="clear"></div>
         </div>
     </fieldset>
+</div>
 </form>
-<div class="end-phase-controls" ng-show="listState.currentPhase.numberOfSteps == listState.currentPhase.currentStep" >    
-    <button type="button" ng-click="listControls.prevStep()">Passo precedente</button>
-    <button type="button" ng-click="listControls.nextPhase()">Fase sucessiva</button>
+
+<div class="end-phase-controls" ng-show="listState.currentPhase.numberOfSteps == listState.currentPhase.currentStep" >
+    <button type="button"
+            class="signal-button"
+            ng-repeat="control in listControls.endPhaseControls"
+            ng-click="control.behaviour($parent.$parent.$index, $parent.$index)">
+            {{control.label}}
+    </button>
+</div>
+
+<div class="end-list-controls"
+     ng-show="false" >
+    <button type="button"
+            class="signal-button"
+            ng-repeat="control in listControls.endPhaseControls"
+            ng-click="control.behaviour($parent.$parent.$index, $parent.$index)">
+            {{control.label}}
+    </button>
 </div>

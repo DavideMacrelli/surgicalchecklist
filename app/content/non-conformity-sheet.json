@@ -1,5 +1,5 @@
 [{
-	"title": "SIGN-IN",
+	"title": "sign-in",
 	"description": "i 7 controlli da effettuare prima dell'induzione dell'anestesia",
 	"steps": [
         {
@@ -83,7 +83,7 @@
     ]
 }, {
 
-		"title": "TIME-OUT",
+		"title": "time-out",
 		"description": "i 7 controlli da effettuare prima dell'incisione della cute",
 		"steps": [
 	        {
@@ -137,7 +137,7 @@
 	    ]
 	}, {
 
-			"title": "SIGN-OUT",
+			"title": "sign-out",
 			"description": "i 6 controlli da effettuare prima dell'uscita dalla sala operatoria",
 			"steps": [
 				{
