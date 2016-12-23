@@ -6,6 +6,26 @@ body{
     color: #555;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong{
+    color: #333;
+}
+
+h2{
+    font-size: 1.375em /*20px*/
+}
+
+h3{
+    font-size: 1.125em /*18px*/
+}
+
+
+
 #homepage-head{
     position: relative;
     height: 140px;
@@ -13,8 +33,8 @@ body{
 
 #checklist-head{
     position: relative;
-    margin: 1% 0 1.5% 0;
-    height: 45px;
+    margin: 1% 0 1.15% 0;
+    height: 60px;
 }
 
 header > img{
@@ -25,7 +45,7 @@ header > img{
     margin: 0;
     position: absolute;
     left: 50%;
-    top:50%;
+    top: 50%;
     transform: translate(-50%,-50%);
 }
 
@@ -43,11 +63,6 @@ header > img{
     transform: translateY(-50%);
 }
 
-.form-element > input {
-    height: 35px;
-    border-radius: 20px;
-    background-color: #eee;
-}
 
 #checklist-info{
     font-size: 0.875em;    /*14px*/
@@ -59,6 +74,8 @@ header > img{
 }
 
 #operation-info{
+    margin-bottom: 10px;
+    padding-top: 5px;
     font-size: 0.75em;  /*12px*/
     border-top: 1px solid #ddd
 }
@@ -83,32 +100,70 @@ header > img{
     border-style: solid;
     border-color: #333;
     border-width: 0 1px 1px 1px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 
 #phase-title > *{
     margin: 0;
 }
 
+#phase-title > h3 {
+    text-transform: uppercase;
+}
+
+#sign-in{
+    background-color: #f8ffad;
+}
+
+#time-out{
+    background-color: #bfffc3;
+}
+
+#sign-out{
+    background-color: #cce1ff;
+}
+
 .step{
+    position: relative;
     font-size: 0.75em; /*12px*/
-    margin: 2px 0;
-    height: 25px;
+    margin: 0.85% 0;
+    border: 1px solid #555;
+    border-radius: 4px;
+}
+
+.step-content{
+    margin-bottom: 2%;
 }
 
 .active{
     font-size: 0.875em; /*14px*/
     font-weight: bold;
-    height: auto;
+    border: 2px solid #555;
 }
 
 .option{
-    margin-right: 2%;
+    border: 1px solid #bbb;
+    padding-right: 3px;
+    border-radius: 2px;
+    margin-right: 1.5%;
     float: left;
-    min-width: 15%;
+    min-width: 20%;
 }
 .options{
     float: left;
-    width: 60%;
+    width: 70%;
+}
+
+.step-controls{
+    float: right;
+    width: 25%;
+}
+
+.step-controls button{
+    margin: 3% auto;
+    width: 65%;
+    min-height: 32px;
 }
 
 
@@ -116,16 +171,6 @@ header,
 #checklist-title,
 #phase-title{
     text-align: center;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong{
-    color: #333;
 }
 
 .phase{
@@ -143,10 +188,226 @@ strong{
 
 .form-element{
     margin: 2em auto;
+    text-align: center;
 }
 
 .end-phase-controls{
     text-align: center;
 }
 
+
+
 /* Animazioni */
+
+/**
+ * Obvious Buttons 0.1
+ * https://github.com/skidding/obvious-buttons
+ *
+ * (c) 2014+ Ovidiu Cherecheș
+ * http://skidding.mit-license.org
+ */
+.btn {
+    height: 100%;
+   padding: 2% 5%;
+   line-height: 100%;
+
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition-property: background-color;
+  -webkit-transition-duration: 0.2s;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-property: background-color;
+  -moz-transition-duration: 0.2s;
+  -moz-transition-timing-function: linear;
+  -ms-transition-property: background-color;
+  -ms-transition-duration: 0.2s;
+  -ms-transition-timing-function: linear;
+  -o-transition-property: background-color;
+  -o-transition-duration: 0.2s;
+  -o-transition-timing-function: linear;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  background: #fafafa;
+  color: #222222;
+}
+
+/*???*/
+.btn:active,
+.btn:active i {
+     transform: translateY(8%);
+}
+
+/*shadows*/
+.btn.btn-primary,
+.btn.btn-info,
+.btn.btn-success,
+.btn.btn-warning,
+.btn.btn-danger,
+.btn.btn-inverse {
+  -webkit-box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 -3px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+/*colors*/
+.btn:hover,
+.btn:focus {
+  background: #e6e6e6;
+  color: #222222;
+}
+.btn.btn-primary {
+  background: #0088cc;
+  color: #fafafa;
+}
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+  background: #006da3;
+  color: #fafafa;
+}
+.btn.btn-info {
+  background: #49afcd;
+  color: #fafafa;
+}
+.btn.btn-info:hover,
+.btn.btn-info:focus {
+  background: #339bba;
+  color: #fafafa;
+}
+.btn.btn-success {
+  background: #5bb75b;
+  color: #fafafa;
+}
+.btn.btn-success:hover,
+.btn.btn-success:focus {
+  background: #47a247;
+  color: #fafafa;
+}
+.btn.btn-warning {
+  background: #faa732;
+  color: #fafafa;
+}
+.btn.btn-warning:hover,
+.btn.btn-warning:focus {
+  background: #f9960a;
+  color: #fafafa;
+}
+.btn.btn-danger {
+  background: #da4f49;
+  color: #fafafa;
+}
+.btn.btn-danger:hover,
+.btn.btn-danger:focus {
+  background: #d0312a;
+  color: #fafafa;
+}
+.btn.btn-inverse {
+  background: #363636;
+  color: #fafafa;
+}
+.btn.btn-inverse:hover,
+.btn.btn-inverse:focus {
+  background: #222222;
+  color: #fafafa;
+}
+.btn span {
+  pointer-events: none;
+}
+.btn:hover {
+  text-decoration: none;
+}
+.btn:focus {
+  text-decoration: none;
+  outline: none;
+}
+.btn:active {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.btn-small {
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.15);
+}
+.btn-small i {
+  line-height: 28px;
+}
+.btn-small:active,
+.btn-small:active i {
+}
+.btn-small.btn-primary,
+.btn-small.btn-info,
+.btn-small.btn-success,
+.btn-small.btn-warning,
+.btn-small.btn-danger,
+.btn-small.btn-inverse {
+  -webkit-box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
+}
+.btn-large {
+  height: 50px;
+  padding: 0 18px;
+  border-radius: 6px;
+  -webkit-box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.15);
+  font-size: 22px;
+  line-height: 46px;
+}
+.btn-large i {
+  line-height: 46px;
+}
+.btn-large:active,
+.btn-large:active i {
+  line-height: 50px;
+}
+.btn-large.btn-primary,
+.btn-large.btn-info,
+.btn-large.btn-success,
+.btn-large.btn-warning,
+.btn-large.btn-danger,
+.btn-large.btn-inverse {
+  -webkit-box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2);
+}
+.btn-xlarge {
+  height: 60px;
+  padding: 0 22px;
+  border-radius: 7px;
+  -webkit-box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.15);
+  font-size: 26px;
+  line-height: 55px;
+}
+.btn-xlarge i {
+  line-height: 55px;
+}
+.btn-xlarge:active,
+.btn-xlarge:active i {
+  line-height: 60px;
+}
+.btn-xlarge.btn-primary,
+.btn-xlarge.btn-info,
+.btn-xlarge.btn-success,
+.btn-xlarge.btn-warning,
+.btn-xlarge.btn-danger,
+.btn-xlarge.btn-inverse {
+  -webkit-box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.2);
+}
+.btn-inline {
+  display: inline-block;
+  vertical-align: middle;
+}
