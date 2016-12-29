@@ -5,49 +5,49 @@
         {
             "legend": "1.1) Identità Paziente:",
             "options": [
-                "No braccialetto",
-                "No barcode/nosologico",
-                "No nosologico",
-                "No cartella"
+                "Problemi relativi al braccialetto (1.1.1)",
+                "Problemi relativi al barcode (1.1.2)",
+                "Problemi relativi al numero nosologico (1.1.3)",
+                "Mancanza cartella / cartella non corrispondente (1.1.4)"
             ]
         },
 
         {
             "legend": "1.2) Sede intervento:",
             "options": [
-                "Non conferma della sede"
+                "Non viene confermata la Sede"
             ]
         },
 
         {
             "legend": "1.3) Procedura Chirurgica",
             "options": [
-                "Non conferma della Procedura"
+                "Non viene confermata la Procedura"
             ]
         },
 
         {
             "legend": "1.4) Consenso",
             "options": [
-                "mancata firma del consenso chirurgico",
-                "mancata firma del consenso anestesiologico",
-                "mancata firma del consenso emocomponenti"
+                "mancata firma del consenso chirurgico (1.4.1)",
+                "mancata firma del consenso anestesiologico (1.4.2)",
+                "mancata firma del consenso emocomponenti (1.4.3)"
             ]
         },
 
         {
             "legend": "2) Il sito dell'intervento marcato",
             "options": [
-                "Sito non marcato",
-                "errata marcatura del sito"
+                "Sito non marcato (2.1)",
+                "errata marcatura del sito (2.2)"
             ]
         },
 
         {
             "legend": "3) Controlli apparecchiature anestesia",
             "options": [
-                "test apparecchiature non effettuati",
-                "non corretto posizionamento"
+                "test apparecchiature non effettuati (3.1)",
+                "non corretto posizionamento / funzionamento pulsiossimetro (3.2)"
             ]
         },
 
@@ -61,8 +61,8 @@
         {
             "legend": "5) Rischi paziente: Allergie",
             "options": [
-                "mancata segnalazione allergia",
-                "mancata visita anestesiologica"
+                "mancata segnalazione allergia (5.1)",
+                "errata segnalazione di allergia (5.2)"
             ]
         },
 
@@ -76,8 +76,8 @@
         {
             "legend": "7) Rischi paziente: Perdite ematiche/emocomponenti",
             "options": [
-                "mancata richiesta di unità a disposizione",
-                "mancata valutazione rischio emorragico"
+                "Mancata valutazione rischio emorragico (7.1)",
+                "Mancata richiesta di emocomponenti / mancanza di emocomponenti a disposizione (7.2)"
             ]
         }
     ]
@@ -96,8 +96,8 @@
 	        {
 	            "legend": "2) Conferma identità, Procedura, sede, posizionamento",
 	            "options": [
-	                "Variazione della procedura rispetto alla programmazione",
-					"posizionamento diverso rispetto alla lista operatoria"
+	                "Variazione della procedura rispetto alla programmazione (2.1)",
+					"posizionamento diverso rispetto alla lista operatoria (2.2)"
 	            ]
 	        },
 
@@ -114,24 +114,24 @@
 	        {
 	            "legend": "5) Anticipazione criticità: Infermiere verifica sterilità",
 	            "options": [
-	                "Problemi di sterilità DM/Strumentario"
+	                "Problemi di sterilità DM/Strumentario (5.1)",
+					"Problemi di funzionalità DM/Strumentario (5.2)"
 	            ]
 	        },
 
 	        {
 	            "legend": "6) Profilassi antibiotica",
 	            "options": [
-	                "Profilassi non eseguita quando necessario",
-	                "Profilassi non prescritta correttamente quando necessario",
-	                "mancanza di farmaci"
+	                "Profilassi non prescritta (6.1)",
+	                "Profilassi non eseguita correttamente (rispetto della tempistica) (6.2)",
+	                "Problemi nella fornitura dei farmaci (6.3)"
 	            ]
 	        },
 
 	        {
 	            "legend": "7) Immagini diagnostiche",
 	            "options": [
-	                "Immagini non disponibili quando necessario",
-	                "errata marcatura del sito"
+	                "Immagini non disponibili"
 	            ]
 	        }
 	    ]
@@ -145,18 +145,18 @@
 		            "options": []
 		        },
 		        {
-		            "legend": "2) conteggio garze",
+		            "legend": "2) Conteggio garze",
 		            "options": [
-		                "Conteggio garze non coincidente con conteggio pre-operatorio",
-		                "Conteggio strumentario non coincidente con conteggio pre-operatorio"
+		                "Conteggio garze non coincidente con conteggio pre-operatorio (2.1)",
+		                "Conteggio strumentario non coincidente con conteggio pre-operatorio (2.2)"
 		            ]
 		        },
 
 		        {
 		            "legend": "3) Campione chirurgico",
 		            "options": [
-		                "Errata identificazione del Campione",
-						"Errata preparazione del Campione"
+		                "Errata identificazione del Campione (3.1)",
+						"Errata preparazione del Campione (3.2)"
 		            ]
 		        },
 
@@ -175,9 +175,9 @@
 		        {
 		            "legend": "6) Profilassi Tromboembolica",
 		            "options": [
-		                "Piano profilassi non eseguito",
-		                "Profilassi non prescritta correttamente",
-		                "mancanza dei farmaci/presidi"
+		                "Profilassi non prescritta / non registrata in cartella (6.1)",
+		                "Profilassi non eseguita (6.2)",
+		                "Problemi nella fornitura di presidi (6.3)"
 		            ]
 		        }
 		    ]

@@ -38,7 +38,7 @@
 		},
 
 		{
-			"legend": "3) Controlli delle apparecchiature di anestesia completati(compreso pulsiossimetro presente)",
+			"legend": "3) Controlli delle apparecchiature di anestesia completati (compreso pulsiossimetro presente)",
 			"options": [
 				""
 			]
@@ -48,7 +48,7 @@
 				""
 			]
 		}, {
-			"legend": "5) Identificazione dei rischi del paziente: Il paziente riferisce allergie?",
+			"legend": "5) Identificazione dei rischi del paziente: Il paziente riferisce / presenta allergie?",
 			"options": [
 				"Si",
 				"No"
@@ -95,7 +95,8 @@
 		{
 			"legend": "4) L'Anestesista ha informato l'equipè sulle specificità del paziente, riscio ASA ed altre criticità",
 			"options": [
-				""
+				"",
+				"non applicabile"
 			]
 		},
 

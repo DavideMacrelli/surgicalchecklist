@@ -134,6 +134,7 @@ header > img{
 
 .step-content{
     margin-bottom: 2%;
+    margin-top: -15px;
 }
 
 .active{
@@ -147,13 +148,22 @@ header > img{
     padding-right: 3px;
     border-radius: 2px;
     margin-right: 1.5%;
+    margin-bottom: 2%;
     float: left;
     min-width: 20%;
 }
+
+label{
+    min-width: 100px;
+    min-height: 20px;
+}
+
 .options{
     float: left;
     width: 70%;
 }
+
+
 
 .step-controls{
     float: right;
@@ -195,10 +205,6 @@ header,
     text-align: center;
 }
 
-
-
-/* Animazioni */
-
 /**
  * Obvious Buttons 0.1
  * https://github.com/skidding/obvious-buttons
@@ -210,6 +216,7 @@ header,
     height: 100%;
    padding: 2% 5%;
    line-height: 100%;
+   margin: 5px;
 
   display: block;
   text-align: center;
