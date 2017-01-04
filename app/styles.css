@@ -66,6 +66,9 @@ header > img{
 
 #checklist-info{
     font-size: 0.875em;    /*14px*/
+    border: 1px solid black;
+    padding: 1% 2%;
+    border-radius: 2px;
     margin: 0;
     position: absolute;
     left: 50%;
@@ -144,18 +147,18 @@ header > img{
 }
 
 .option{
-    border: 1px solid #bbb;
-    padding-right: 3px;
-    border-radius: 2px;
     margin-right: 1.5%;
     margin-bottom: 2%;
     float: left;
-    min-width: 20%;
+
 }
 
 label{
+    border: 1px solid #bbb;
+    padding-right: 3px;
+    border-radius: 2px;
+    display: inline-block;
     min-width: 100px;
-    min-height: 20px;
 }
 
 .options{

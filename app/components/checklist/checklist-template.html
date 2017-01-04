@@ -12,9 +12,12 @@
         <legend>{{step.legend}}</legend><br />
         <div class="step-content">
             <div class="options">
-                <div class="option" ng-click="listControls.nextStep()" ng-repeat="option in step.options" >
-                    <input type="checkbox" name="option" id="c{{$index}}" />
-                    <label for="">{{option}}</label>
+                <div class="option" ng-repeat="option in step.options" >
+
+                    <label>
+                        <input type="checkbox" name="option" ng-click="listControls.nextStep()"/>
+                        {{option}}
+                    </label>
                     <div class="clear"></div>
                 </div>
             </div>
