@@ -13,7 +13,7 @@ angular.module('checklistApp.listStateService',[])
 .factory('listState', ['$log', '$location', function($log, $location) {
     /**
      * I dati riguardanti la checklist attiva
-     * dettagli anagrafici, Presidio ospedaliero,
+     * Presidio ospedaliero,
      * sala operatoria, fase corrente, step corrente
      * @type {Object}
      */
@@ -21,6 +21,7 @@ angular.module('checklistApp.listStateService',[])
         patientDetails: {},
         hospital: "",
         opRoom: "",
+        numberOfPhases: 0,  //Il numero totale di fasi
         currentPhase: {},   //la fase a cui è arrivata la compilazione
         activePhase: {},    //la fase visualizzata
     };
@@ -59,12 +60,11 @@ angular.module('checklistApp.listStateService',[])
             //costruisco l'array che modella le fasi della checklist
             for (var i = 0; i < checklistStructure.checklist.length; i++) {
                 listPhases[i] = new phase(i, checklistStructure.checklist[i].steps.length, 0);
-                $log.log("creata nuova fase");
-                $log.log(listPhases[i]);
+                currentListState.numberOfPhases++;
             }
             currentListState.currentPhase = listPhases[0];
             currentListState.activePhase = listPhases[0];
-            $log.log("le fasi sono:");
+            $log.log("le fasi sono:" + currentListState.numberOfPhases);
             $log.log(listPhases);
             $location.path('/checklist-view');
 

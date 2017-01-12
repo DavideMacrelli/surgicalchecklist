@@ -208,6 +208,10 @@ header,
     text-align: center;
 }
 
+.end-list-controls{
+    text-align: center;
+}
+
 /**
  * Obvious Buttons 0.1
  * https://github.com/skidding/obvious-buttons

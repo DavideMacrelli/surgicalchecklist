@@ -75,9 +75,80 @@ angular.module('checklistApp.checklistView', [])
             },
 
             {
-                label: "Completa Checklist",
+                label: "Salva Checklist",
                 behaviour: function () {
                     $log.log("Checklist Completata");
+                    var dataToPost = {
+                    	"checklist-id" : "54869",
+                    	"company-code": "7856587",
+                    	"hospital-code": "080091",
+                    	"phases": [{
+                    		"phase-title": "sign-in",
+                    		"steps": [{
+                    			"legend": "1.1) Il paziente ha confermato: Identità",
+                    			"selected-options": ["Identità"],
+                    			"non-conformities": [
+                    	            "Problemi relativi al braccialetto (1.1.1)",
+                    	            "Problemi relativi al numero nosologico (1.1.3)"
+                    	        ]
+
+                    		},{
+                    			"legend": "1.2) Il paziente ha confermato: Sede intervento",
+                    			"selected-options": ["Sede intervento"],
+                    			"non-conformities": []
+
+                    		},{
+                    			"legend": "1.3) Il paziente ha confermato: Procedura",
+                    			"selected-options": ["Procedura"],
+                    			"non-conformities": []
+
+                    		},{
+                    			"legend": "1.4) Il paziente ha confermato: Consensi",
+                    			"selected-options": ["Consensi ( anestesiologico/ chirurgico/ emocomponeneti)"],
+                    			"non-conformities": []
+
+                    		},{
+                    			"legend": "2) Verifica presenza e correttezza della marchatura del sito dell'intervento",
+                    			"selected-options": ["non applicabile"],
+                    			"non-conformities": []
+
+                    		},{
+                    			"legend": "3) Controlli delle apparecchiature di anestesia completati (compreso pulsiossimetro presente)",
+                    			"selected-options": [""],
+                    			"non-conformities": []
+
+                    		},{
+                    			"legend": "4) Verifica corretto funzionamento apparecchiature di sala operatoria",
+                    			"selected-options": [""],
+                    			"non-conformities": ["non corretto funzionamento"]
+
+                    		},{
+                    			"legend": "5) Identificazione dei rischi del paziente: Il paziente riferisce / presenta allergie?",
+                    			"selected-options": ["Si"],
+                    			"non-conformities": []
+
+                    		},{
+                    			"legend": "6) Il paziente presenta difficoltà di gestione delle vie aeree o rischio di aspirazione?",
+                    			"selected-options": ["Si, strumentazione/assistenza disponibile"],
+                    			"non-conformities": []
+
+                    		},{
+                    			"legend": "7) Il paziente presenta rischio di perdite ematiche > 500ml (7ml per Kg nei bambini)?",
+                    			"selected-options": ["No"],
+                    			"non-conformities": []
+                    		}]
+                    	}]
+                    }
+ /* PostData*/
+                    var queryParams = {params: {op: 'saveEmployee'}};/* Query Parameters*/
+                    $http.post("URL" , dataToPost, queryParams)
+                        .success(function(serverResponse, status, headers, config) {
+                        // Updating the $scope postresponse variable to update theview
+                        $scope.postresponse = serverResponse.data.firstName + " " + serverResponse.data.lastName;
+                    }).error(function(serverResponse, status, headers, config) {
+                        alert("Invio Checklist fallito");
+                    }
+                );
                 },
             },
         ]

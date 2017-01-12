@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <h2 id="checklist-title">{{title}}</h2>
 <form class="phase" ng-repeat="phase in checklist" ng-show="$index == listState.currentPhase.phaseNumber">
     <hgroup id="phase-title">
@@ -36,7 +37,10 @@
 </div>
 </form>
 
-<div class="end-phase-controls" ng-show="listState.currentPhase.numberOfSteps == listState.currentPhase.currentStep" >
+<div class="end-phase-controls"
+    ng-show="(listState.currentPhase.numberOfSteps == listState.currentPhase.currentStep) &&
+             (listState.numberOfPhases != (listState.currentPhase.phaseNumber + 1))"
+>
     <button type="button"
             class="signal-button btn btn-primary btn-inline"
             ng-repeat="control in listControls.endPhaseControls"
@@ -46,10 +50,12 @@
 </div>
 
 <div class="end-list-controls"
-     ng-show="false" >
+     ng-show="listState.numberOfPhases == (listState.currentPhase.phaseNumber + 1) &&
+                (listState.currentPhase.numberOfSteps == listState.currentPhase.currentStep)"
+     >
     <button type="button"
             class="signal-button btn btn-primary btn-inline"
-            ng-repeat="control in listControls.endPhaseControls"
+            ng-repeat="control in listControls.endListControls"
             ng-click="control.behaviour($parent.$parent.$index, $parent.$index)">
             {{control.label}}
     </button>
